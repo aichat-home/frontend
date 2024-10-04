@@ -18,17 +18,21 @@ interface Mission {
 const missionsData: Mission[] = [
   {
     id: 1,
-    name: "Mission 1",
-    description: "Description of mission 1",
-    link: "https://example.com/mission1",
+    name: "Join our Channel",
+    description: "Catch the latest updates",
+    link: "https://t.me/BeambotXYZ",
   },
   {
     id: 2,
-    name: "Mission 2",
-    description: "Description of mission 2",
-    link: "https://example.com/mission2",
+    name: "Join our Chat",
+    description: "Meet the community and chat with users",
+    link: "https://t.me/beambotchat",
   },
-  // { id: 3, name: 'Mission 3', description: 'Description of mission 3', link: 'https://example.com/mission3' },
+  { id: 3,
+    name: 'Follow us on X',
+    description: 'Drop us a follow for the latest updates',
+    link: 'https://x.com/BeamBotXYZ'
+   },
 ];
 
 const MissionSlider: React.FC = () => {

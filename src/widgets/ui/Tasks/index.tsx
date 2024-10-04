@@ -4,7 +4,7 @@ import TaskItem from "./TaskItem";
 import "./index.css";
 import { useFetchTasksQuery } from "./store/tasksApi";
 import { useUser } from "../../../app/providers/UserProvider";
-import { useTranslation } from "../../../../node_modules/react-i18next";
+import { useTranslation } from "react-i18next";
 
 interface Task {
   id: number;
@@ -28,22 +28,27 @@ const Tasks: React.FC = () => {
     }
   }, [user]);
 
-  const { data: tasks = [], isLoading } = useFetchTasksQuery(undefined, {
+  // Fetch tasks
+  const { data: tasksData = {}, isLoading } = useFetchTasksQuery(undefined, {
     skip: !shouldFetchTasks,
   });
+
+  // Combine all tasks into a single array
+  const allTasks: Task[] = Object.values(tasksData as Record<string, Task[]>).flat();
 
   const [filteredTasks, setFilteredTasks] = useState<Task[]>([]);
 
   useEffect(() => {
-    if (tasks.length > 0) {
-      const completedTaskIds =
-        user?.account?.completedTasks?.map((task) => task.id) || [];
-      const newFilteredTasks = tasks.filter(
-        (task) => !completedTaskIds.includes(task.id),
-      );
-      setFilteredTasks(newFilteredTasks);
+    if (allTasks.length > 0) {
+      const completedTaskIds = user?.account?.completedTasks?.map((task) => task.id) || [];
+      const newFilteredTasks = allTasks.filter((task) => !completedTaskIds.includes(task.id));
+
+      // Only update state if filteredTasks actually changed
+      if (JSON.stringify(filteredTasks) !== JSON.stringify(newFilteredTasks)) {
+        setFilteredTasks(newFilteredTasks);
+      }
     }
-  }, [tasks, user?.account?.completedTasks]);
+  }, [allTasks, user?.account?.completedTasks, filteredTasks]);
 
   useEffect(() => {
     if (filteredTasks.length > 0) {
@@ -68,9 +73,7 @@ const Tasks: React.FC = () => {
     <Block className="task-block">
       <div className="tasks-section">
         <h3>{t("Tasks")}</h3>
-        <div
-          className={`tasks-container ${animateContainer ? "animated" : ""} ${showAllTasks ? "expanded" : ""}`}
-        >
+        <div className={`tasks-container ${animateContainer ? "animated" : ""} ${showAllTasks ? "expanded" : ""}`}>
           {isLoading ? (
             <TaskItem
               key={schedulerTask.id}
@@ -104,7 +107,7 @@ const Tasks: React.FC = () => {
         <div className="view-more-section">
           <div className="view-more-block">
             <button className="view-more-btn" onClick={handleViewMore}>
-              {showAllTasks ? t("view_less") : t("view_more")}
+              {showAllTasks ? t("View more") : t("View more")}
             </button>
             <img src="src/shared/assets/chevron.svg" alt="" />
           </div>

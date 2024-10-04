@@ -90,7 +90,7 @@ const Header: React.FC = () => {
           </Link>
         </Block>
         <Block>
-          <Link to="/daily-check">
+          <Link to="/">
             <div>
               <img src={SettingIcon} alt="Settings" />
             </div>

@@ -26,12 +26,12 @@ const SettingsPage: React.FC = () => {
           <span className="settings-value">{t("english")} &gt;</span>
         </Block>
       </Block>
-      <Modal isVisible={isModalVisible} onClose={() => setModalVisible(false)}>
+      <Modal isVisible={isModalVisible} onClose={() => setModalVisible(false)} className="language-modal">
         <Block onClick={() => changeLanguage("en")}>
-          <Button>{t("english")}</Button>
+          <Button className="language-btn">{t("english")}</Button>
         </Block>
         <Block onClick={() => changeLanguage("ru")}>
-          <Button>{t("russian")}</Button>
+          <Button className="language-btn">{t("russian")}</Button>
         </Block>
       </Modal>
     </Block>

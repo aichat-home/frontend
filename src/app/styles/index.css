@@ -61,6 +61,12 @@ body {
     color: light-dark(#0f1015, #fff);
 }
 
+.modal-content {
+    background-color: light-dark(#ffffff, #1a1d26);
+    color: light-dark(#0f1015, #fff);
+    min-height: 200px;
+}
+
 .token-per-second-plus {
     background-color: light-dark(black, black);
     border-color: light-dark(black, black);

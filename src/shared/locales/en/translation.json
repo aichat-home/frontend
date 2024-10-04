@@ -17,5 +17,13 @@
     "general": "General",
     "language": "Language",
     "english": "English",
-    "russian": "Russian"
+    "russian": "Russian",
+    "Sniper": "Sniper",
+    "join_channel": "Join our Channel",
+    "join_chat": "Join our Chat",
+    "follow_us_on_x": "Follow us on X.Com",
+    "follow_our_x": "Follow our X.com",
+    "follow_us_message": "Drop us a follow for the latest updates",
+    "join_chat_message": "Meet the community and chat with users",
+    "join_channel_message": "Catch the latest updates"
 }

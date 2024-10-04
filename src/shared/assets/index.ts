@@ -19,6 +19,9 @@ import UserIcon from "./user.svg";
 import WalletIcon from "./Wallet.svg";
 import RefIcon from "./ref.svg";
 import SpeedIcon from "./speed.svg";
+import TweeterIcon from "./x.svg";
+import YoutubeIcon from "./youtube.svg";
+import SniperIcon from "./sniper.svg";
 
 export {
   OnePlaceIcon,
@@ -42,4 +45,7 @@ export {
   RefIcon,
   WalletIcon,
   SpeedIcon,
+  TweeterIcon,
+  YoutubeIcon,
+  SniperIcon,
 };

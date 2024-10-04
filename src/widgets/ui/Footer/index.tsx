@@ -2,7 +2,7 @@ import "./index.css";
 import Block from "../Block";
 import { NavLink, useLocation } from "react-router-dom";
 import { useTranslation } from "../../../../node_modules/react-i18next";
-import { GiftIcon, HomeIcon, TradeIcon, UserIcon, WalletIcon } from "../../../shared/assets";
+import { GiftIcon, HomeIcon, SniperIcon, TradeIcon, WalletIcon } from "../../../shared/assets";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -11,9 +11,13 @@ const Footer = () => {
   return (
     <footer className="footer">
       <Block>
-        <NavLink
+        {/* <NavLink
           to="/"
           className={`footer-item ${location.pathname === "/" ? "active" : ""}`}
+          style={{ textDecoration: "none", color: "inherit" }}
+        > */}
+        <div
+          className={`footer-item ${location.pathname === "/trade" ? "active" : ""}`}
           style={{ textDecoration: "none", color: "inherit" }}
         >
           <img
@@ -22,12 +26,33 @@ const Footer = () => {
             className="footer-icon"
           />
           <p>{t("Home")}</p>
-        </NavLink>
+          </div>
+        {/* </NavLink> */}
+      </Block>
+      <Block>
+        {/* <NavLink
+          to="/"
+          className={`footer-item ${location.pathname === "/portfolio" ? "active" : ""}`}
+          style={{ textDecoration: "none", color: "inherit" }}
+        > */}
+        <div
+          className={`footer-item ${location.pathname === "/trade" ? "active" : ""}`}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <img
+            src={SniperIcon}
+            alt={t("Portfolio")}
+            className="footer-icon"
+          />
+          <p>{t("Sniper")}</p>
+          </div>
+        {/* </NavLink> */}
       </Block>
 
       <Block>
         <div
           className={`footer-item ${location.pathname === "/trade" ? "active" : ""}`}
+          style={{ textDecoration: "none", color: "inherit" }}
         >
           <img
             src={TradeIcon}
@@ -39,8 +64,14 @@ const Footer = () => {
       </Block>
 
       <Block>
-        <div
+        {/* <NavLink
+          to="/"
           className={`footer-item ${location.pathname === "/wallet" ? "active" : ""}`}
+          style={{ textDecoration: "none", color: "inherit" }}
+        > */}
+        <div
+          className={`footer-item ${location.pathname === "/trade" ? "active" : ""}`}
+          style={{ textDecoration: "none", color: "inherit" }}
         >
           <img
             src={WalletIcon}
@@ -48,23 +79,10 @@ const Footer = () => {
             className="footer-icon"
           />
           <p>{t("Wallet")}</p>
-        </div>
+          </div>
+        {/* </NavLink> */}
       </Block>
 
-      <Block>
-        <NavLink
-          to="/portfolio"
-          className={`footer-item ${location.pathname === "/portfolio" ? "active" : ""}`}
-          style={{ textDecoration: "none", color: "inherit" }}
-        >
-          <img
-            src={UserIcon}
-            alt={t("Portfolio")}
-            className="footer-icon"
-          />
-          <p>{t("Portfolio")}</p>
-        </NavLink>
-      </Block>
 
       <Block>
         <NavLink

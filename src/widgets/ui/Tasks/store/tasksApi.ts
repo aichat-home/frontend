@@ -11,7 +11,6 @@ export const tasksApi = createApi({
         url: "task/",
         method: "GET",
       }),
-      transformResponse: (response: { Partners: Task[] }) => response.Partners,
     }),
     checkTask: builder.mutation<void, CheckTaskRequest>({
       query: (params: CheckTaskRequest) => ({

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Block from "../../Block";
 import Button from "../../Button";
 import "./index.css";
 import { useCheckTaskMutation } from "../store/tasksApi";
-import { TaskTgIcon } from "../../../../shared/assets/index";
+import { TaskTgIcon, TweeterIcon, YoutubeIcon } from "../../../../shared/assets/index";
 
 interface TaskItemProps {
   id: number;
@@ -14,6 +14,13 @@ interface TaskItemProps {
   buttonText: string;
   link: string;
   animationDelay?: string;
+}
+
+enum TaskIcons{
+  telegram="Telegram",
+  twitter="Twitter",
+  twitterX="X",
+  youtube="Youtube",
 }
 
 const TaskItem: React.FC<TaskItemProps> = ({
@@ -58,8 +65,15 @@ const TaskItem: React.FC<TaskItemProps> = ({
       }
     }, 5000);
   };
-
-  const resolvedIconSrc = iconSrc.includes("Telegram") ? TaskTgIcon : iconSrc;
+  
+  const resolvedIconSrc = useMemo(() => {
+    if( iconSrc === TaskIcons.telegram )
+      return TaskTgIcon;
+    if( iconSrc === TaskIcons.youtube )
+      return YoutubeIcon;
+    if( iconSrc === TaskIcons.twitter || iconSrc === TaskIcons.twitterX )
+      return TweeterIcon;    
+  },[iconSrc])
 
   return (
     <div

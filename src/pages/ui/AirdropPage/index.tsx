@@ -6,7 +6,7 @@ import Farming from "../../../widgets/ui/Farming";
 import Header from "../../../widgets/ui/GameHeader";
 import Tasks from "../../../widgets/ui/Tasks";
 import { useTranslation } from "../../../../node_modules/react-i18next";
-import { FriendsIcon } from "../../../shared/assets";
+import { FriendsIcon, PercentageCircleIcon } from "../../../shared/assets";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../../../app/store/hooks";
 import { selectUserCoins } from "../../../app/providers/UserProvider/store/selectors";
@@ -35,9 +35,9 @@ const Airdrop = () => {
           <div className="stat">
             <div>{t("Commission")}</div>
             <div className="user-stats-commision">
-              <div>$-- {user?.account?.reffers?.length}0</div>
+              <div>$-- </div>
               <div>
-                <img src="src/shared/assets/percentage-circle.svg" alt="" />
+                <img src={PercentageCircleIcon} alt="" />
               </div>
             </div>
           </div>
