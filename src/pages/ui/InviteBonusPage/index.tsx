@@ -1,9 +1,7 @@
 import React from 'react';
 import './index.css'; 
 import { useUser } from '../../../app/providers/UserProvider';
-import { useSelector } from 'react-redux'; 
 import { useCheckReferralMutation } from './store';
-import { selectInitDataRaw } from '../../../app/providers/UserProvider/store/selectors';
 import { SpeedIcon } from '../../../shared/assets';
 
 interface InviteBonusItem {
