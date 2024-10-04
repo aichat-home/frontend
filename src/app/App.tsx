@@ -1,9 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./styles/App.css";
 import Layout from "./ui/Layout";
 import { SDKProvider } from "@telegram-apps/sdk-react";
 import Airdrop from "../pages/ui/AirdropPage";
-import UserProvider, { useUser } from "./providers/UserProvider";
+import UserProvider from "./providers/UserProvider";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 import SettingsPage from "../pages/ui/SettingsPage";
