@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import { useInitData, useLaunchParams } from "@telegram-apps/sdk-react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { setInitDataRaw, updateFarmingData } from "./store/userSlice";
+import { setInitDataRaw, updateFarmingData, updateUserTokens } from "./store/userSlice";
 import { selectInitDataRaw } from "./store/selectors";
 import { useLazyGetOrCreateQuery, useLazyGetMeQuery } from "./store";
 import { GetMeDto } from "./store/types";
@@ -67,6 +67,7 @@ const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
           totalFarmReward: meData.total_farm_reward || 0,
         }),
       );
+      dispatch(updateUserTokens(meData.wallet.coins))
       dispatch(
         setFarmingState({
           currentTotalCoinsFarmed: meData.current_farm_reward || 0,

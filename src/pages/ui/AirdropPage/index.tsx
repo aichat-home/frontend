@@ -8,9 +8,12 @@ import Tasks from "../../../widgets/ui/Tasks";
 import { useTranslation } from "../../../../node_modules/react-i18next";
 import { FriendsIcon } from "../../../shared/assets";
 import { Link } from "react-router-dom";
+import { useAppSelector } from "../../../app/store/hooks";
+import { selectUserCoins } from "../../../app/providers/UserProvider/store/selectors";
 
 const Airdrop = () => {
   const user = useUser();
+  const userCoins = useAppSelector(selectUserCoins)
 
   const { t } = useTranslation();
 
@@ -23,7 +26,7 @@ const Airdrop = () => {
           <div className="stat">
             <div>BBP</div>
             <div className="user-stats-stars">
-              <div>{user?.wallet?.coins}</div>
+              <div>{userCoins}</div>
               <div>
                 <img src="src/shared/assets/Stars.svg" alt="" />
               </div>

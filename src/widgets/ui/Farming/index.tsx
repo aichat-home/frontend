@@ -72,7 +72,7 @@ const Farming: React.FC = () => {
 
       const response: { coins: number } | null = await claimFarm().unwrap();
 
-      if (response && typeof response.coins === "number") {
+      if (response) {
         dispatch(updateUserTokens(response.coins));
       }
 

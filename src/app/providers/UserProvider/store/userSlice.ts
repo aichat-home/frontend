@@ -8,7 +8,7 @@ export interface Wallet {
 
 export interface UserState {
   initDataRaw?: string;
-  wallet?: Wallet;
+  wallet: Wallet;
   farmingData: FarmingData;
 }
 
@@ -21,7 +21,9 @@ const initialState: UserState = {
     plusEverySecond: 0,
     totalDuration: 0,
     totalFarmReward: 0,
+    
   },
+  wallet: {coins: 0}
 };
 
 const userSlice = createSlice({
@@ -32,9 +34,6 @@ const userSlice = createSlice({
       state.initDataRaw = action.payload;
     },
     updateUserTokens(state, action: PayloadAction<number>) {
-      if (!state.wallet) {
-        state.wallet = { coins: 0 };
-      }
       state.wallet.coins = action.payload;
     },
     updateFarmingData(state, action: PayloadAction<Partial<FarmingData>>) {
