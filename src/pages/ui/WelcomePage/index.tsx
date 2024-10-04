@@ -12,7 +12,6 @@ const DailyCheckInPage: React.FC = () => {
   const user = useUser();
 
   const currentDay = user?.wallet.reward.day ?? 1;
-  const showWelcomeScreen = user?.account.heSeeWelcomeScreen ?? true;
 
   console.log('Current Day:', currentDay);
 

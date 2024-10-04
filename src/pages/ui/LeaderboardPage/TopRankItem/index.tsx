@@ -1,7 +1,6 @@
 // TopRankItem.tsx
 import React, { CSSProperties } from "react";
 import "./index.css";
-import { useUser } from "../../../../app/providers/UserProvider";
 
 interface TopRankItemProps {
   id: number;

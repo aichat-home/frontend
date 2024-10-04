@@ -18,7 +18,6 @@ const InviteBonusPage: React.FC = () => {
   const referralRewards = user?.reffer_rewards || [];
 
   const [checkReferral, { isLoading }] = useCheckReferralMutation();
-  const initDataRaw = useSelector(selectInitDataRaw);
 
   const inviteBonuses: InviteBonusItem[] = [
     { level: 'I', description: 'Invite 2 friends', reward: 1500, requiredReferrals: 2 },
