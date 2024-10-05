@@ -27,9 +27,9 @@ const Page = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     console.log("location", location)
-    if (location.pathname !== "/airdrop") {
+    if (location.pathname !== "/") {
       backBtn.on("click", () => {
-        navigate("/airdrop")
+        navigate("/")
       })
       backBtn.show()
     } else {
