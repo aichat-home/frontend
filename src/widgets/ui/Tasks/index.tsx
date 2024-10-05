@@ -6,6 +6,7 @@ import { useFetchTasksQuery } from "./store/tasksApi";
 import { useUser } from "../../../app/providers/UserProvider";
 import { ChevronIcon } from "../../../shared/assets";
 import { t } from "i18next";
+import { useMiniApp } from "@telegram-apps/sdk-react";
 
 interface Task {
   id: number;
@@ -36,7 +37,9 @@ const Tasks: React.FC = () => {
 
   const [filteredTasks, setFilteredTasks] = useState<Task[]>([]);
 
+  const miniApp = useMiniApp();
   useEffect(() => {
+    miniApp.on
     if (allTasks.length > 0) {
       const completedTaskIds = user?.account?.completedTasks?.map((task) => task.id) || [];
       const newFilteredTasks = allTasks.filter((task) => !completedTaskIds.includes(task.id));
@@ -56,6 +59,7 @@ const Tasks: React.FC = () => {
   const handleViewMore = () => {
     setShowAllTasks(!showAllTasks);
   };
+
 
   const schedulerTask: Task = {
     id: 0,
