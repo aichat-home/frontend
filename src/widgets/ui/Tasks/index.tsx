@@ -21,7 +21,6 @@ const Tasks: React.FC = () => {
   const [shouldFetchTasks, setShouldFetchTasks] = useState(false);
   const [showAllTasks, setShowAllTasks] = useState(false);
   const [animateContainer, setAnimateContainer] = useState(false);
-  const [animationState, setAnimationState] = useState(""); // Состояние для анимации
 
   useEffect(() => {
     if (user) {
@@ -55,8 +54,6 @@ const Tasks: React.FC = () => {
   }, [filteredTasks]);
 
   const handleViewMore = () => {
-    // Устанавливаем состояние анимации
-    setAnimationState(showAllTasks ? "close" : "open");
     setShowAllTasks(!showAllTasks);
   };
 
@@ -73,9 +70,7 @@ const Tasks: React.FC = () => {
     <Block className="task-block">
       <h3 className="task-header">{t("Tasks")}</h3>
       <div className="tasks-section">
-        <div
-          className={`tasks-container ${animateContainer ? "animated" : ""} ${animationState}`}
-        >
+        <div className={`tasks-container ${animateContainer ? "animated" : ""} ${showAllTasks ? "expanded" : ""}`}>
           {isLoading ? (
             <TaskItem
               key={schedulerTask.id}
@@ -119,6 +114,7 @@ const Tasks: React.FC = () => {
           <img src={ChevronIcon} alt="" />
         </div>
       </div>
+
     </Block>
   );
 };
