@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.css'; 
 import { useUser } from '../../../app/providers/UserProvider';
 import { useCheckReferralMutation } from './store';
@@ -13,8 +13,7 @@ interface InviteBonusItem {
 
 const InviteBonusPage: React.FC = () => {
   const user = useUser();
-  const referralRewards = user?.reffer_rewards || [];
-
+  const [referralRewards, setReferralRewards] = useState(user?.reffer_rewards || []);
   const [checkReferral, { isLoading }] = useCheckReferralMutation();
 
   const inviteBonuses: InviteBonusItem[] = [
@@ -35,14 +34,35 @@ const InviteBonusPage: React.FC = () => {
     return !referralRewards[index]?.claimed && referralRewards[index - 1]?.claimed;
   };
 
-  const handleCheckClick = async (requiredReferrals: number) => {
+  const handleCheckClick = async (requiredReferrals: number, index: number) => {
+    if (!isButtonActive(index)) return; // Prevent click if button is not active
+  
     try {
       const response = await checkReferral({ checkCount: requiredReferrals }).unwrap();
       console.log(`Checked for ${requiredReferrals} referrals:`, response);
+  
+      // Check if the referral is valid before updating the state
+      if (response.referral_valid) {
+        // Update the referralRewards state to mark the reward as claimed
+        setReferralRewards(prevRewards =>
+          prevRewards.map((reward, i) =>
+            i === index ? { ...reward, claimed: true } : reward
+          )
+        );
+      } else {
+        console.log('Referral check is not valid.');
+      }
     } catch (error) {
       console.error(`Error checking for ${requiredReferrals} referrals:`, error);
     }
   };
+  
+
+  useEffect(() => {
+    if (user) {
+      setReferralRewards(user.reffer_rewards || []);
+    }
+  }, [user]);
 
   return (
     <div className="page-content">
@@ -82,16 +102,16 @@ const InviteBonusPage: React.FC = () => {
                   <span>{item.reward} BBP</span>
                 </div>
                 {isClaimed ? (
-                  <div className="claimed-text">Claimed</div>
-                ) : isActive ? (
+                  <div className="claimed-text">Checked</div>
+                ) : (
                   <button 
-                    className={`task-btn active`}
-                    disabled={isLoading}
-                    onClick={() => handleCheckClick(item.requiredReferrals)}
+                    className={`task-btn ${isActive ? 'active' : ''}`}
+                    disabled={!isActive || isLoading}
+                    onClick={() => handleCheckClick(item.requiredReferrals, index)}
                   >
-                    {isLoading ? 'Checking...' : 'Check'}
+                    {isLoading && isActive ? 'Checking...' : 'Check'}
                   </button>
-                ) : null }
+                )}
               </div>
             );
           })}

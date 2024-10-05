@@ -21,7 +21,7 @@ const InviteFriends: React.FC = () => {
 
   const openTelegramChat = () => {
     if (!inviteCode) return;
-    const telegramUrl = `https://t.me/share/url?url=https://t.me/BeamTapBot/Dapp?startapp=${encodeURIComponent(inviteCode)}&text=@BeamTapBot Join me in mining Firecoin and get free coins! 🔥`;
+    const telegramUrl = `https://t.me/share/url?url=https://t.me/tap_your_coin_bot/TYC?startapp=${encodeURIComponent(inviteCode)}&text=@BeamTapBot Join me in mining Firecoin and get free coins! 🔥`;
     console.log(telegramUrl);
 
     window.open(telegramUrl, "_blank");
