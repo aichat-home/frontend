@@ -1,22 +1,30 @@
 .footer {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  background-color: #fff;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-  display: flex;
-  justify-content: space-around;
-  padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: #fff;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
 }
 
 .footer-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .footer-icon {
-  width: 24px;
-  height: 24px;
+    width: 24px;
+    height: 24px;
+}
+
+.dsable {
+    filter: grayscale(100%) opacity(0.5);
+}
+
+.active {
+    filter: brightness(0) saturate(100%) invert(25%) sepia(87%) saturate(670%) hue-rotate(181deg) brightness(100%) contrast(97%);
 }

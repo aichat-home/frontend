@@ -59,7 +59,8 @@ const InviteFriends: React.FC = () => {
               style={{ backgroundColor: getRandomColor(index) }}
             >
               {referral.user.username ? referral.user.username.slice(0, 2).toUpperCase() 
-              : `${referral.user.first_name} ${referral.user.last_name}`}
+               : `${referral.user.first_name.slice(0, 1).toUpperCase()}${referral.user.last_name.slice(0, 1).toUpperCase()}`}
+
 
             </div>
             <div className="friend-info">

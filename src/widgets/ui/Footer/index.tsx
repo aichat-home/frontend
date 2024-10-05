@@ -83,8 +83,7 @@ const Footer = () => {
       <Block>
         <NavLink
           to="/"
-          className={`footer-item ${location.pathname === "/airdrop" ? "active" : ""}`}
-          style={{ textDecoration: "none", color: "inherit" }}
+          className={`footer-item active ${location.pathname === "/airdrop" ? "active" : ""}`}
         >
           <img
             src={GiftIcon}
