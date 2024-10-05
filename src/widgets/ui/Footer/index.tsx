@@ -17,8 +17,7 @@ const Footer = () => {
           style={{ textDecoration: "none", color: "inherit" }}
         > */}
         <div
-          className={`footer-item ${location.pathname === "/trade" ? "active" : ""}`}
-          style={{ textDecoration: "none", color: "inherit" }}
+          className={`footer-item disable ${location.pathname === "/trade" ? "active" : ""}`}
         >
           <img
             src={HomeIcon}
@@ -36,12 +35,11 @@ const Footer = () => {
           style={{ textDecoration: "none", color: "inherit" }}
         > */}
         <div
-          className={`footer-item ${location.pathname === "/trade" ? "active" : ""}`}
-          style={{ textDecoration: "none", color: "inherit" }}
+          className={`footer-item disable ${location.pathname === "/trade" ? "active" : ""}`}
         >
           <img
             src={SniperIcon}
-            alt={t("Portfolio")}
+            alt={t("Sniper")}
             className="footer-icon"
           />
           <p>{t("Sniper")}</p>
@@ -51,8 +49,7 @@ const Footer = () => {
 
       <Block>
         <div
-          className={`footer-item ${location.pathname === "/trade" ? "active" : ""}`}
-          style={{ textDecoration: "none", color: "inherit" }}
+          className={`footer-item disable ${location.pathname === "/trade" ? "active" : ""}`}
         >
           <img
             src={TradeIcon}
@@ -70,8 +67,7 @@ const Footer = () => {
           style={{ textDecoration: "none", color: "inherit" }}
         > */}
         <div
-          className={`footer-item ${location.pathname === "/trade" ? "active" : ""}`}
-          style={{ textDecoration: "none", color: "inherit" }}
+          className={`footer-item disable ${location.pathname === "/trade" ? "active" : ""}`}
         >
           <img
             src={WalletIcon}

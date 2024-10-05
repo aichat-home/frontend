@@ -32,6 +32,10 @@ body {
     background-color: light-dark(#efedea, #0f1015);
 }
 
+.content::-webkit-scrollbar {
+    display: none;
+}
+
 .invite-bonus-section {
     color: light-dark(#333b3c, #fff);
     background-color: light-dark(#efedea, #0f1015);

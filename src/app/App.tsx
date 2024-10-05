@@ -39,7 +39,7 @@ function App() {
         <UserProvider>
           <TonConnectUIProvider
             actionsConfiguration={{
-              twaReturnUrl: "https://t.me/tap_your_coin_bot/TYC",
+              twaReturnUrl: "https://t.me/BeamTapBot/Dapp",
             }}
             manifestUrl="https://ton-connect.github.io/demo-dapp-with-wallet/tonconnect-manifest.json"
           >

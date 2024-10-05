@@ -26,7 +26,7 @@ const Airdrop = () => {
           <div className="stat">
             <div>BBP</div>
             <div className="user-stats-stars">
-            <div>{Math.floor(userCoins)}</div>
+            <div>+ {Math.floor(userCoins)}</div>
               <div>
                 <img src={StarsIcon} alt="" />
               </div>
