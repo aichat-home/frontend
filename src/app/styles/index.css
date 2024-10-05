@@ -5,6 +5,11 @@
     --img-filter-dark: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
 }
 
+body,
+html {
+    -webkit-user-drag: none;
+}
+
 body {
     color: light-dark(#333b3c, #f8f9fc);
     background-color: light-dark(#efedea, #0f1015);
@@ -74,8 +79,8 @@ body {
 }
 
 .token-per-second-plus {
-    background-color: light-dark(black, black);
-    border-color: light-dark(black, black);
+    background-color: light-dark(black, #0197ec);
+    border-color: light-dark(black, #0197ec);
     color: light-dark(#fff, #fff);
 }
 

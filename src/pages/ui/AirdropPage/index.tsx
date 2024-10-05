@@ -24,28 +24,28 @@ const Airdrop = () => {
       <Block>
         <div className="user-stats">
           <div className="stat">
-            <div>BBP</div>
+            <div className="bold">BBP</div>
             <div className="user-stats-stars">
-            <div>+ {Math.floor(userCoins)}</div>
+            <div className="gray">+ {Math.floor(userCoins)}</div>
               <div>
                 <img src={StarsIcon} alt="" />
               </div>
             </div>
           </div>
           <div className="stat">
-            <div>{t("Commission")}</div>
+            <div className="bold">{t("Commission")}</div>
             <div className="user-stats-commision">
-              <div>$-- </div>
-              <div>
+              <div className="gray">$-- </div>
+              <div className="flex">
                 <img src={PercentageCircleIcon} alt="" />
               </div>
             </div>
           </div>
 
           <div className="stat">
-            <div>{t("Invites")}</div>
+            <div className="bold">{t("Invites")}</div>
             <div className="user-stats-invites">
-              <div>+{user?.account?.reffers?.length || "0"}</div>
+              <div className="gray">+{user?.account?.reffers?.length || "0"}</div>
               <div>
                 <Link to='/ref'>
                     <img src={FriendsIcon} alt="" />

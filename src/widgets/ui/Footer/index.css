@@ -26,5 +26,6 @@
 }
 
 .active {
+    text-decoration: none;
     filter: brightness(0) saturate(100%) invert(25%) sepia(87%) saturate(670%) hue-rotate(181deg) brightness(100%) contrast(97%);
 }
