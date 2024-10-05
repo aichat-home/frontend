@@ -16,11 +16,11 @@ interface TaskItemProps {
   animationDelay?: string;
 }
 
-enum TaskIcons{
-  telegram="Telegram",
-  twitter="Twitter",
-  twitterX="X",
-  youtube="Youtube",
+enum TaskIcons {
+  telegram = "Telegram",
+  twitter = "Twitter",
+  twitterX = "X",
+  youtube = "Youtube",
 }
 
 const TaskItem: React.FC<TaskItemProps> = ({
@@ -36,6 +36,7 @@ const TaskItem: React.FC<TaskItemProps> = ({
   const [checkTask] = useCheckTaskMutation();
   const [isChecking, setIsChecking] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isCompleted, setIsCompleted] = useState(false); 
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -46,6 +47,8 @@ const TaskItem: React.FC<TaskItemProps> = ({
   }, []);
 
   const handleButtonClick = async () => {
+    if (isCompleted) return; 
+
     window.open(link, "_blank");
     setIsChecking(true);
     const startTime = Date.now();
@@ -56,6 +59,7 @@ const TaskItem: React.FC<TaskItemProps> = ({
         console.log("Task checked successfully:", id);
         clearInterval(interval);
         setIsChecking(false);
+        setIsCompleted(true); 
       } catch (error) {
         console.error("Error checking task:", error);
         if (Date.now() - startTime >= 30000) {
@@ -65,31 +69,25 @@ const TaskItem: React.FC<TaskItemProps> = ({
       }
     }, 5000);
   };
-  
+
   const resolvedIconSrc = useMemo(() => {
-    if( iconSrc === TaskIcons.telegram )
-      return TaskTgIcon;
-    if( iconSrc === TaskIcons.youtube )
-      return YoutubeIcon;
-    if( iconSrc === TaskIcons.twitter || iconSrc === TaskIcons.twitterX )
-      return TweeterIcon;    
-  },[iconSrc])
+    if (iconSrc === TaskIcons.telegram) return TaskTgIcon;
+    if (iconSrc === TaskIcons.youtube) return YoutubeIcon;
+    if (iconSrc === TaskIcons.twitter || iconSrc === TaskIcons.twitterX) return TweeterIcon;
+  }, [iconSrc]);
 
   return (
-    <div
-      className={`task-item ${isVisible ? "visible" : ""}`}
-      style={{ animationDelay }}
-    >
+    <div className={`task-item ${isVisible ? "visible" : ""}`} style={{ animationDelay }}>
       <Block className="task-list">
         <img src={resolvedIconSrc} alt={title} className="task-icon" />
       </Block>
       <div className="task-info">
         <div>{title}</div>
-        <span>{description}</span>
+        <span>{isCompleted ? "Completed" : description}</span>
       </div>
       <div className="task-action">
         <span>{reward} BBP</span>
-        <Button onClick={handleButtonClick} disabled={isChecking}>
+        <Button onClick={handleButtonClick} disabled={isChecking || isCompleted}>
           {buttonText}
         </Button>
       </div>

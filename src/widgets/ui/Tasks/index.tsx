@@ -4,7 +4,8 @@ import TaskItem from "./TaskItem";
 import "./index.css";
 import { useFetchTasksQuery } from "./store/tasksApi";
 import { useUser } from "../../../app/providers/UserProvider";
-import { useTranslation } from "react-i18next";
+import { ChevronIcon } from "../../../shared/assets";
+import { t } from "i18next";
 
 interface Task {
   id: number;
@@ -17,10 +18,10 @@ interface Task {
 
 const Tasks: React.FC = () => {
   const user = useUser();
-  const { t } = useTranslation();
   const [shouldFetchTasks, setShouldFetchTasks] = useState(false);
   const [showAllTasks, setShowAllTasks] = useState(false);
   const [animateContainer, setAnimateContainer] = useState(false);
+  const [animationState, setAnimationState] = useState(""); // Состояние для анимации
 
   useEffect(() => {
     if (user) {
@@ -28,12 +29,10 @@ const Tasks: React.FC = () => {
     }
   }, [user]);
 
-  // Fetch tasks
   const { data: tasksData = {}, isLoading } = useFetchTasksQuery(undefined, {
     skip: !shouldFetchTasks,
   });
 
-  // Combine all tasks into a single array
   const allTasks: Task[] = Object.values(tasksData as Record<string, Task[]>).flat();
 
   const [filteredTasks, setFilteredTasks] = useState<Task[]>([]);
@@ -43,7 +42,6 @@ const Tasks: React.FC = () => {
       const completedTaskIds = user?.account?.completedTasks?.map((task) => task.id) || [];
       const newFilteredTasks = allTasks.filter((task) => !completedTaskIds.includes(task.id));
 
-      // Only update state if filteredTasks actually changed
       if (JSON.stringify(filteredTasks) !== JSON.stringify(newFilteredTasks)) {
         setFilteredTasks(newFilteredTasks);
       }
@@ -57,6 +55,8 @@ const Tasks: React.FC = () => {
   }, [filteredTasks]);
 
   const handleViewMore = () => {
+    // Устанавливаем состояние анимации
+    setAnimationState(showAllTasks ? "close" : "open");
     setShowAllTasks(!showAllTasks);
   };
 
@@ -71,9 +71,11 @@ const Tasks: React.FC = () => {
 
   return (
     <Block className="task-block">
+      <h3 className="task-header">{t("Tasks")}</h3>
       <div className="tasks-section">
-        <h3>{t("Tasks")}</h3>
-        <div className={`tasks-container ${animateContainer ? "animated" : ""} ${showAllTasks ? "expanded" : ""}`}>
+        <div
+          className={`tasks-container ${animateContainer ? "animated" : ""} ${animationState}`}
+        >
           {isLoading ? (
             <TaskItem
               key={schedulerTask.id}
@@ -85,6 +87,8 @@ const Tasks: React.FC = () => {
               buttonText="Загрузка..."
               link={schedulerTask.link}
             />
+          ) : filteredTasks.length === 0 ? (
+            <p className="completed">{t("all_tasks_completed")}</p>
           ) : (
             filteredTasks
               .slice(0, showAllTasks ? filteredTasks.length : 3)
@@ -103,16 +107,18 @@ const Tasks: React.FC = () => {
           )}
         </div>
       </div>
-      {filteredTasks.length > 3 && (
-        <div className="view-more-section">
-          <div className="view-more-block">
-            <button className="view-more-btn" onClick={handleViewMore}>
-              {showAllTasks ? t("View more") : t("View more")}
-            </button>
-            <img src="src/shared/assets/chevron.svg" alt="" />
-          </div>
+      <div className="view-more-section">
+        <div className="view-more-block">
+          <button
+            className="view-more-btn"
+            onClick={handleViewMore}
+            disabled={filteredTasks.length === 0} 
+          >
+            {showAllTasks ? t("view_less") : t("view_more")}
+          </button>
+          <img src={ChevronIcon} alt="" />
         </div>
-      )}
+      </div>
     </Block>
   );
 };

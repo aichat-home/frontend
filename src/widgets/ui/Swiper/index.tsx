@@ -1,4 +1,3 @@
-// MissionSlider.tsx
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -7,6 +6,7 @@ import "./index.css";
 import { Pagination } from "swiper/modules";
 import Button from "../Button";
 import Block from "../Block";
+import { t } from "i18next";
 
 interface Mission {
   id: number;
@@ -18,24 +18,30 @@ interface Mission {
 const missionsData: Mission[] = [
   {
     id: 1,
-    name: "Join our Channel",
-    description: "Catch the latest updates",
+    name: "join_channel",
+    description: "join_channel_message",
     link: "https://t.me/BeambotXYZ",
   },
   {
     id: 2,
-    name: "Join our Chat",
-    description: "Meet the community and chat with users",
+    name: "join_chat",
+    description: "join_chat_message",
     link: "https://t.me/beambotchat",
   },
-  { id: 3,
-    name: 'Follow us on X',
-    description: 'Drop us a follow for the latest updates',
-    link: 'https://x.com/BeamBotXYZ'
-   },
+  {
+    id: 3,
+    name: "follow_us_on_x",
+    description: "follow_us_message",
+    link: "https://x.com/BeamBotXYZ",
+  },
 ];
 
 const MissionSlider: React.FC = () => {
+
+  const handleButtonClick = (url: string) => {
+    window.open(url, "_blank");
+  };
+
   return (
     <Swiper
       slidesPerView={"auto"}
@@ -49,10 +55,10 @@ const MissionSlider: React.FC = () => {
       {missionsData.map((mission) => (
         <SwiperSlide key={mission.id}>
           <div className="mission-slide">
-            <h3 className="mission-name">{mission.name}</h3>
-            <p className="mission-description">{mission.description}</p>
+            <h3 className="mission-name">{t(mission.name)}</h3>
+            <p className="mission-description">{t(mission.description)}</p>
             <Block className="swiper-mission-btn">
-              <Button>Follow</Button>
+              <Button onClick={() => handleButtonClick(mission.link)}>{t("Follow")}</Button>
             </Block>
           </div>
         </SwiperSlide>

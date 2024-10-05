@@ -10,10 +10,12 @@ import {
   ThreePlaceIcon,
 } from "../../../shared/assets/index";
 import { useUser } from "../../../app/providers/UserProvider";
+import { t } from "i18next";
+
 
 const WallOfFame: React.FC = () => {
   const { data: leaderboardData, isLoading } = useFetchLeaderboardQuery();
-  const user = useUser(); // Get the logged-in user's data
+  const user = useUser();
 
   const avatarColors = [
     "#FF5733",
@@ -40,18 +42,17 @@ const WallOfFame: React.FC = () => {
   ];
 
   if (!user) {
-    return <div>Loading...</div>;
+    return <div>{t("loading")}</div>; 
   }
 
   return (
     <Block className="wall-of-fame">
       <div className="header leaderboard-header">
-        <h2>Wall of Fame</h2>
-        <p>Ascend to greatness and shine like a star!</p>
-        <img src={CupIcon} alt="Trophy" />
+        <h2>{t("wall_of_fame")}</h2>
+        <p>{t("ascend_to_greatness")}</p>
+        <img src={CupIcon} alt={t("trophy")} />
       </div>
 
-      {/* Display the current user's profile at the top */}
       <Block className="highlighted-rank">
         <div className="avatar" style={{ backgroundColor: getRandomColor() }}>
           {user.username.slice(0, 2).toUpperCase()}
@@ -64,19 +65,18 @@ const WallOfFame: React.FC = () => {
       </Block>
 
       <Block className="top-rank-section">
-        <h3>Top Rank</h3>
+        <h3>{t("top_rank")}</h3>
         {isLoading ? (
-          <p>Loading...</p>
+          <p>{t("loading")}</p> 
         ) : (
           <>
-            {/* Display top 3 users with icons */}
             {topRankData.slice(0, 3).map((item, index) => (
               <TopRankItem
                 key={item.id}
                 id={item.id}
                 username={item.username}
                 score={item.coins.toLocaleString()}
-                rank={index + 1} // Ranks 1, 2, 3
+                rank={index + 1}
                 icon={rankIcons[index]}
                 backgroundColor={getRandomColor()}
                 style={
@@ -92,8 +92,8 @@ const WallOfFame: React.FC = () => {
                 id={item.id}
                 username={item.username}
                 score={item.coins.toLocaleString()}
-                rank={index + 4} 
-                icon={null} 
+                rank={index + 4}
+                icon={null}
                 backgroundColor={getRandomColor()}
                 style={
                   {

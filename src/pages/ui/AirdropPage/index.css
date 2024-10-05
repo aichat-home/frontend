@@ -78,7 +78,7 @@
 
 .user-stats-stars {
     display: flex;
-    align-items: inherit;
+    align-items: stretch;
     justify-content: center;
 }
 

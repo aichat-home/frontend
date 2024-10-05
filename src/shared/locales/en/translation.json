@@ -25,5 +25,14 @@
     "follow_our_x": "Follow our X.com",
     "follow_us_message": "Drop us a follow for the latest updates",
     "join_chat_message": "Meet the community and chat with users",
-    "join_channel_message": "Catch the latest updates"
+    "join_channel_message": "Catch the latest updates",
+    "connect_wallet": "Connect Wallet",
+    "disconnect_wallet": "Disconnect Wallet",
+    "all_tasks_completed": "All tasks completed",
+    "loading": "Loading...",
+    "wall_of_fame": "Wall of Fame",
+    "ascend_to_greatness": "Ascend to greatness and shine like a star!",
+    "trophy": "Trophy",
+    "top_rank": "Top Rank"
+
 }

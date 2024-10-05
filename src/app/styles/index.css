@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap');
 :root {
     color-scheme: light dark;
     --img-filter-light: invert(0%);
@@ -8,6 +9,7 @@ body {
     color: light-dark(#333b3c, #f8f9fc);
     background-color: light-dark(#efedea, #0f1015);
     font-weight: 400;
+    font-family: 'Kanit', sans-serif;
 }
 
 .button {
@@ -221,7 +223,6 @@ img {
         background-color: #1a1d26;
     }
     .farming-progress {
-        padding: 5px;
         background: #32363c;
     }
     .task-list {

@@ -19,6 +19,7 @@ import {
   CupStarIcon,
   SettingIcon,
 } from "../../../shared/assets/index";
+import { t } from "i18next";
 
 const Header: React.FC = () => {
   const user = useUser();
@@ -90,7 +91,7 @@ const Header: React.FC = () => {
           </Link>
         </Block>
         <Block>
-          <Link to="/">
+          <Link to="/settings">
             <div>
               <img src={SettingIcon} alt="Settings" />
             </div>
@@ -100,11 +101,12 @@ const Header: React.FC = () => {
 
       <Modal isVisible={isModalVisible} onClose={() => setModalVisible(false)}>
         {wallet ? (
-          <Button onClick={disconnectWallet}>Disconnect Wallet</Button>
+          <Button onClick={disconnectWallet}>{t("disconnect_wallet")}</Button>
         ) : (
-          <Button onClick={open}>Connect Wallet</Button>
+          <Button onClick={open}>{t("connect_wallet")}</Button>
         )}
       </Modal>
+
     </Block>
   );
 };

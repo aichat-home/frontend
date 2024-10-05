@@ -46,7 +46,6 @@ const InviteBonusPage: React.FC = () => {
 
   return (
     <div className="page-content">
-      {/* Farming Speed Section */}
       <div className="farming-speed">
         <h2>Farming Speed</h2>
         <div className="farm-rates">

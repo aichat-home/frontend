@@ -16,7 +16,6 @@ import InviteFriends from "../pages/ui/ReferalsPage";
 import Page from "./ui/Page";
 import InviteBonusPage from "../pages/ui/InviteBonusPage";
 import DailyCheckInPage from "../pages/ui/WelcomePage";
-
 function App() {
   const [showLoader, setShowLoader] = useState(true);
 
