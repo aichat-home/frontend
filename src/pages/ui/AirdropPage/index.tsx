@@ -17,6 +17,16 @@ const Airdrop = () => {
 
   const { t } = useTranslation();
 
+  const formatCoins = (coins: number) => {
+    if (coins >= 1000000) {
+      return `${Math.floor(coins / 1000000)}M`;
+    } else if (coins >= 1000) {
+      return `${Math.floor(coins / 1000)}K`;
+    } else {
+      return Math.floor(coins); 
+    }
+  };
+
   return (
     <div className="airdrop-container">
       <Header />
@@ -26,7 +36,7 @@ const Airdrop = () => {
           <div className="stat">
             <div className="bold">BBP</div>
             <div className="user-stats-stars">
-            <div className="gray">+ {Math.floor(userCoins)}</div>
+            <div className="gray">+ {formatCoins(userCoins)}</div>
               <div>
                 <img src={StarsIcon} alt="" />
               </div>
