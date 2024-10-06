@@ -54,7 +54,7 @@ const Header: React.FC = () => {
   return (
     <Block className="header">
       <div className="user-info">
-        <Link className="invite-bonus-link" to='invite-bonus-page'>
+        <Link className="invite-bonus-link" to='/invite-bonus-page'>
           <Block className="username">
             <img src={CoinIcon} alt="User Avatar" className="user-avatar" />
             <Block className="user-tokens">
