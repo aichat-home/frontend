@@ -35,15 +35,13 @@ const InviteBonusPage: React.FC = () => {
   };
 
   const handleCheckClick = async (requiredReferrals: number, index: number) => {
-    if (!isButtonActive(index)) return; // Prevent click if button is not active
+    if (!isButtonActive(index)) return;
   
     try {
       const response = await checkReferral({ checkCount: requiredReferrals }).unwrap();
       console.log(`Checked for ${requiredReferrals} referrals:`, response);
   
-      // Check if the referral is valid before updating the state
       if (response.referral_valid) {
-        // Update the referralRewards state to mark the reward as claimed
         setReferralRewards(prevRewards =>
           prevRewards.map((reward, i) =>
             i === index ? { ...reward, claimed: true } : reward
@@ -105,7 +103,7 @@ const InviteBonusPage: React.FC = () => {
                   <div className="claimed-text">Checked</div>
                 ) : (
                   <button 
-                    className={`task-btn ${isActive ? 'active' : ''}`}
+                    className={`task-btn ${isActive ? 'active-check' : ''}`}
                     disabled={!isActive || isLoading}
                     onClick={() => handleCheckClick(item.requiredReferrals, index)}
                   >

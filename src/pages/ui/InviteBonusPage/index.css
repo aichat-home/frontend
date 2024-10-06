@@ -87,8 +87,6 @@
 
 .task-btn:disabled {
     background-color: #000;
-    /* Gray background */
     color: #fff;
-    /* Gray text */
     cursor: not-allowed;
 }
