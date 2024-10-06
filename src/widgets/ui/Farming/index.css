@@ -30,6 +30,7 @@
     height: 100%;
     width: 0%;
     padding: 5px 5px 5px 0;
+    border-radius: 0px 10px 10px 0;
     background: #1118273b;
     transition: width 1.5s ease-out;
     z-index: 0;
