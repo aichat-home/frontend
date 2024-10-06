@@ -52,10 +52,10 @@
 
 .header-right-icons .block div {
     display: flex;
+    width: 23.75px;
     background-color: #fff;
-    border: 1px solid white;
     border-radius: 20px;
-    padding: 2px;
+    padding: 5px;
 }
 
 .user-avatar {
@@ -87,7 +87,8 @@
 }
 
 .gray {
-    color: #696F8C;
+    color: #8D8D8D;
+    padding-right: 10px;
 }
 
 .bold {

@@ -56,6 +56,7 @@
 
 .token-per-second-plus {
     width: 25px;
+    height: 20px;
     display: flex;
     align-items: center;
     border: 1px solid white;
@@ -94,7 +95,6 @@
 .header-right-icons .block div {
     display: flex;
     background-color: #fff;
-    border: 1px solid white;
     border-radius: 20px;
     padding: 2px;
 }
