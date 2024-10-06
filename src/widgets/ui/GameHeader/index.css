@@ -39,6 +39,7 @@
     align-items: center;
     border-radius: 10px;
     padding: 0 3px;
+    width: 200px;
 }
 
 .token-per-seconds {
@@ -54,7 +55,7 @@
 }
 
 .token-per-second-plus {
-    width: 20%;
+    width: 25px;
     display: flex;
     align-items: center;
     border: 1px solid white;

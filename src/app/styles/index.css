@@ -106,7 +106,7 @@ body {
 }
 
 .boost-button {
-    background-color: light-dark(#fff, #1a1d26);
+    background-color: light-dark(#fff, #0197ec);
     color: light-dark(#0f1015, #fff);
 }
 
@@ -176,7 +176,7 @@ body {
 
 .username {
     /* background-color: light-dark(black, #0197ec); */
-    color: light-dark(black, #ffffff);
+    color: light-dark(black, #ffffff) !important;
 }
 
 .invite-bonus-link {
