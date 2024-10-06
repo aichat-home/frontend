@@ -44,7 +44,7 @@ const InviteFriends: React.FC = () => {
       <Block className="header leaderboard-header">
         <h2>Invite Friends</h2>
         <p>Earn more BBP as a reward!</p>
-        <img src={RefIcon} alt="Invite Icon" className="invite-icon" />
+        <img src={RefIcon} alt="Invite Icon" className="invite-icon-list" />
       </Block>
 
       <Block className="friends-count">
