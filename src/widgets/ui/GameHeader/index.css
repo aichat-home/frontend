@@ -94,9 +94,10 @@
 
 .header-right-icons .block div {
     display: flex;
+    width: 23.75px;
     background-color: #fff;
     border-radius: 20px;
-    padding: 2px;
+    padding: 5px;
 }
 
 .connect-wallet-btn {

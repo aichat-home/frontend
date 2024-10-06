@@ -50,14 +50,6 @@
     padding-left: 10px;
 }
 
-.header-right-icons .block div {
-    display: flex;
-    width: 23.75px;
-    background-color: #fff;
-    border-radius: 20px;
-    padding: 5px;
-}
-
 .user-avatar {
     width: 40px;
     height: 40px;
