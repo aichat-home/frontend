@@ -58,7 +58,7 @@ const WallOfFame: React.FC = () => {
           {user.username.slice(0, 2).toUpperCase()}
         </div>
         <div className="info">
-          <h3>{user.username}</h3>
+          <h3>{user.username ? user.username : `${user.first_name} ${user.last_name}`}</h3>
           <span>{user.wallet.coins.toLocaleString()} BBP</span>
         </div>
         <div className="rank-number">#{leaderboardData?.user_rank}</div>
