@@ -30,11 +30,21 @@ const Header: React.FC = () => {
   const [saveWalletAddress] = useSaveWalletAddressMutation();
 
   const { open } = useTonConnectModal();
+
+  // Функция для вибрации
+  const handleVibration = () => {
+    if (navigator.vibrate) {
+      navigator.vibrate(100); // Вибрация на 100 миллисекунд
+    }
+  };
+
   const handleWalletClick = () => {
+    handleVibration(); // Добавляем вибрацию при клике
     setModalVisible(true);
   };
 
   const disconnectWallet = () => {
+    handleVibration(); // Добавляем вибрацию при клике
     if (tonConnectUI) {
       tonConnectUI.disconnect();
     }
@@ -54,7 +64,7 @@ const Header: React.FC = () => {
   return (
     <Block className="header">
       <div className="user-info">
-        <Link className="invite-bonus-link" to='/invite-bonus-page'>
+        <Link className="invite-bonus-link" to='/invite-bonus-page' onClick={handleVibration}>
           <Block className="username">
             <img src={CoinIcon} alt="User Avatar" className="user-avatar" />
             <Block className="user-tokens">
@@ -67,9 +77,7 @@ const Header: React.FC = () => {
                   <span className="collected-tokens-amount">{user?.plus_every_second}</span>
                   <span className="tocken-name">BBP</span>
                 </Block>
-                <Block className="token-per-second-plus">
-                  +
-                </Block>
+                <Block className="token-per-second-plus">+</Block>
               </Block>
             </Block>
           </Block>
@@ -84,14 +92,14 @@ const Header: React.FC = () => {
         </Block>
 
         <Block>
-          <Link to="/leaders">
+          <Link to="/leaders" onClick={handleVibration}>
             <div>
               <img src={CupStarIcon} alt="Achievements" />
             </div>
           </Link>
         </Block>
         <Block>
-          <Link to="/settings">
+          <Link to="/settings" onClick={handleVibration}>
             <div>
               <img src={SettingIcon} alt="Settings" />
             </div>
@@ -104,12 +112,10 @@ const Header: React.FC = () => {
           {wallet ? (
             <Button onClick={disconnectWallet}>{t("disconnect_wallet")}</Button>
           ) : (
-            <Button onClick={open}>{t("connect_wallet")}</Button>
+            <Button onClick={() => { handleVibration(); open(); }}>{t("connect_wallet")}</Button>
           )}
         </div>
       </Modal>
-
-
     </Block>
   );
 };

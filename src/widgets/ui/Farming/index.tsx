@@ -33,6 +33,13 @@ const Farming: React.FC = () => {
     remainingTime,
   } = useAppSelector(selectFarmingState);
 
+  // Функция для вибрации
+  const handleVibration = () => {
+    if (navigator.vibrate) {
+      navigator.vibrate(100); // Вибрация на 100 миллисекунд
+    }
+  };
+
   const formatTime = useMemo(() => {
     const h = Math.floor(remainingTime / 3600)
       .toString()
@@ -45,6 +52,7 @@ const Farming: React.FC = () => {
   }, [remainingTime]);
 
   const handleStartFarming = async () => {
+    handleVibration(); // Добавляем вибрацию при старте фарминга
     try {
       setShowWave(true);
       setTimeout(() => setShowWave(false), 1500);
@@ -66,6 +74,7 @@ const Farming: React.FC = () => {
   };
 
   const handleClaim = async () => {
+    handleVibration(); // Добавляем вибрацию при получении награды
     try {
       setShowWave(true);
       setTimeout(() => setShowWave(false), 1000);
@@ -88,6 +97,11 @@ const Farming: React.FC = () => {
     } catch (error) {
       console.error("Ошибка при получении награды:", error);
     }
+  };
+
+  const handleBoostClick = () => {
+    handleVibration(); // Добавляем вибрацию при нажатии на кнопку Boost
+    // Добавьте здесь вашу логику для Boost
   };
 
   return (
@@ -128,7 +142,9 @@ const Farming: React.FC = () => {
           </>
         )}
       </Block>
-      <Block className="boost-button">{t("Boost")}</Block>
+      <Block className="boost-button" onClick={handleBoostClick}>
+        {t("Boost")}
+      </Block>
     </Block>
   );
 };
