@@ -64,7 +64,7 @@ const InviteFriends: React.FC = () => {
 
             </div>
             <div className="friend-info">
-              <h4>{referral.user.username}</h4>
+              <h4>{referral.user.username ? referral.user.username : `${referral.user.first_name} ${referral.user.last_name}`}</h4>
               <span>{referral.earned_coins.toLocaleString()} BBP</span>
             </div>
           </Block>
