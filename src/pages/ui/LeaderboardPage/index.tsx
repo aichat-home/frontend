@@ -12,7 +12,6 @@ import {
 import { useUser } from "../../../app/providers/UserProvider";
 import { t } from "i18next";
 
-
 const WallOfFame: React.FC = () => {
   const { data: leaderboardData, isLoading } = useFetchLeaderboardQuery();
   const user = useUser();
@@ -45,6 +44,14 @@ const WallOfFame: React.FC = () => {
     return <div>{t("loading")}</div>; 
   }
 
+  const userDisplayName = user.username
+    ? user.username
+    : `${user.first_name || ""} ${user.last_name || ""}`.trim();
+
+  const userAvatarText = user.username
+    ? user.username.slice(0, 2).toUpperCase()
+    : `${(user.first_name || "").slice(0, 1).toUpperCase()}${(user.last_name || "").slice(0, 1).toUpperCase()}`;
+
   return (
     <Block className="wall-of-fame">
       <div className="header leaderboard-header">
@@ -55,11 +62,11 @@ const WallOfFame: React.FC = () => {
 
       <Block className="highlighted-rank">
         <div className="avatar" style={{ backgroundColor: getRandomColor() }}>
-          {user.username.slice(0, 2).toUpperCase()}
+          {userAvatarText}
         </div>
         <div className="info">
-          <h3>{user.username ? user.username : `${user.first_name} ${user.last_name}`}</h3>
-          <span>{user.wallet.coins.toLocaleString()} BBP</span>
+          <h3>{userDisplayName}</h3>
+          <span>{user.wallet?.coins.toLocaleString() || 0} BBP</span>
         </div>
         <div className="rank-number">#{leaderboardData?.user_rank}</div>
       </Block>
