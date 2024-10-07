@@ -11,7 +11,7 @@ import {
 import { selectFarmingData } from "../../providers/UserProvider/store/selectors";
 import { FarmingStatus } from "../../../pages/ui/AirdropPage/store/types";
 import { useLocation, useNavigate } from "react-router-dom";
-// import { useBackButton, useViewport } from "@telegram-apps/sdk-react"
+import { useBackButton, useViewport } from "@telegram-apps/sdk-react"
 
 const Page = ({ children }: { children: React.ReactNode }) => {
   const dispatch = useAppDispatch();
@@ -21,27 +21,27 @@ const Page = ({ children }: { children: React.ReactNode }) => {
     useAppSelector(selectFarmingData);
   const { isFarming, remainingTime } = useAppSelector(selectFarmingState);
   const navigate = useNavigate();
-  // const viewPort = useViewport();
-  // const backBtn = useBackButton()
+  const viewPort = useViewport();
+  const backBtn = useBackButton()
   const location = useLocation()
 
-  // useEffect(() => {
-  //   console.log("location", location)
-  //   if (location.pathname !== "/") {
-  //     backBtn.on("click", () => {
-  //       navigate("/")
-  //     })
-  //     backBtn.show()
-  //   } else {
-  //     backBtn.hide()
-  //     backBtn.off("click", () => {})
-  //   }
-  // }, [location])
-  // useEffect(() => {
-  //   if (viewPort) {
-  //     viewPort.expand();
-  //   };
-  // }, [viewPort])
+  useEffect(() => {
+    console.log("location", location)
+    if (location.pathname !== "/") {
+      backBtn.on("click", () => {
+        navigate("/")
+      })
+      backBtn.show()
+    } else {
+      backBtn.hide()
+      backBtn.off("click", () => {})
+    }
+  }, [location])
+  useEffect(() => {
+    if (viewPort) {
+      viewPort.expand();
+    };
+  }, [viewPort])
 
   useEffect(() => {
     if (totalDuration && !timePassed) {
