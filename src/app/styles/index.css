@@ -85,9 +85,8 @@ body {
 }
 
 .token-per-seconds {
-    background-color: light-dark(#fff, #1a1d26);
+    background-color: light-dark(#FFFFFF, #FFFFFF);
     border-color: light-dark(transparent, transparent);
-    color: light-dark(#fff, #fff);
 }
 
 .friend-item {
@@ -220,6 +219,9 @@ img {
 @media (prefers-color-scheme: dark) {
     img {
         filter: invert(100%);
+    }
+    .token-per-seconds img {
+        filter: none !important;
     }
     .top-rank-item img {
         filter: none !important;

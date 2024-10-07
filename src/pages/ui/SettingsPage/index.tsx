@@ -16,7 +16,6 @@ const SettingsPage: React.FC = () => {
     setModalVisible(false);
   };
 
-  // Определяем, какой язык отображать
   const currentLanguageLabel = i18n.language === "ru" ? t("russian") : t("english");
 
   return (
@@ -29,14 +28,21 @@ const SettingsPage: React.FC = () => {
           <span className="settings-value">{currentLanguageLabel} &gt;</span>
         </Block>
       </Block>
+
       <Modal isVisible={isModalVisible} onClose={() => setModalVisible(false)} className="language-modal">
-        <Block onClick={() => changeLanguage("en")}>
-          <Button className="language-btn">{t("english")}</Button>
-        </Block>
-        <Block onClick={() => changeLanguage("ru")}>
-          <Button className="language-btn">{t("russian")}</Button>
-        </Block>
+        <div className="modal-body">
+          <div className="language-container">
+            <Block onClick={() => changeLanguage("en")}>
+              <Button className="language-btn">{t("english")}</Button>
+            </Block>
+            <Block onClick={() => changeLanguage("ru")}>
+              <Button className="language-btn">{t("russian")}</Button>
+            </Block>
+          </div>
+        </div>
       </Modal>
+
+
     </Block>
   );
 };

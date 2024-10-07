@@ -33,6 +33,11 @@
     "wall_of_fame": "Wall of Fame",
     "ascend_to_greatness": "Ascend to greatness and shine like a star!",
     "trophy": "Trophy",
-    "top_rank": "Top Rank"
-
+    "top_rank": "Top Rank",
+    "commissions_outline_title": "Commissions Outline",
+    "commissions_outline_text_1": "An overview of your total earnings via commissions:",
+    "commissions_outline_text_2": "You can gain additional token rewards by inviting friends.",
+    "commissions_outline_text_3": "When they join, you’ll go on to earn a specific percentage amount of their fees from trades made on the BeamBot platform.",
+    "commissions_outline_text_4": "Trade together, win together.",
+    "commissions_outline_text_5": "Please note that funds are automatically added to your wallet, with no manual collection required."
 }

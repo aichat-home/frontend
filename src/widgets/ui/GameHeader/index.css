@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 0;
+    padding: 16px 0 0 0;
     border-radius: 10px;
 }
 
@@ -47,6 +47,7 @@
 }
 
 .token-per-seconds {
+    height: 20px;
     display: flex;
     justify-content: space-between;
     padding: 0 3px;
@@ -82,7 +83,7 @@
 .collected-tokens-amount,
 .tocken-name {
     font-size: 13px;
-    color: light-dark(black, white);
+    color: light-dark(black, black);
 }
 
 .header-right-icons {
@@ -105,4 +106,13 @@
 
 .connect-wallet-btn {
     width: 10px;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }

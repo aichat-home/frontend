@@ -22,6 +22,7 @@ import SpeedIcon from "./speed.svg";
 import TweeterIcon from "./x.svg";
 import YoutubeIcon from "./youtube.svg";
 import SniperIcon from "./sniper.svg";
+import InfoIcon from "./info.svg";
 
 export {
   OnePlaceIcon,
@@ -48,4 +49,5 @@ export {
   TweeterIcon,
   YoutubeIcon,
   SniperIcon,
+  InfoIcon
 };

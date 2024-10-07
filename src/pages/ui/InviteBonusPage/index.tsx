@@ -27,10 +27,19 @@ const InviteBonusPage: React.FC = () => {
   ];
 
   const isButtonActive = (index: number) => {
-    const allUnclaimed = referralRewards.every(reward => !reward.claimed);
-    if (allUnclaimed) {
-      return index === 0;
+    const requiredReferrals = inviteBonuses[index].requiredReferrals;
+    const currentReferrals = user?.account?.reffers?.length || 0;
+    
+    // Check if the current number of referrals is sufficient
+    if (currentReferrals < requiredReferrals) {
+      return false;
     }
+
+    // Check if it's the first bonus or if the previous bonus was claimed
+    if (index === 0) {
+      return !referralRewards[index]?.claimed;
+    }
+
     return !referralRewards[index]?.claimed && referralRewards[index - 1]?.claimed;
   };
 
@@ -103,7 +112,7 @@ const InviteBonusPage: React.FC = () => {
                   <div className="claimed-text">Checked</div>
                 ) : (
                   <button 
-                    className={`task-btn ${isActive ? 'active-check' : ''}`}
+                    className={`task-btn ${isActive ? 'active-check' : 'inactive-check'}`}
                     disabled={!isActive || isLoading}
                     onClick={() => handleCheckClick(item.requiredReferrals, index)}
                   >

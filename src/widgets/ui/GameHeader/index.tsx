@@ -100,12 +100,15 @@ const Header: React.FC = () => {
       </Block>
 
       <Modal isVisible={isModalVisible} onClose={() => setModalVisible(false)}>
-        {wallet ? (
-          <Button onClick={disconnectWallet}>{t("disconnect_wallet")}</Button>
-        ) : (
-          <Button onClick={open}>{t("connect_wallet")}</Button>
-        )}
+        <div className="modal-body">
+          {wallet ? (
+            <Button onClick={disconnectWallet}>{t("disconnect_wallet")}</Button>
+          ) : (
+            <Button onClick={open}>{t("connect_wallet")}</Button>
+          )}
+        </div>
       </Modal>
+
 
     </Block>
   );
