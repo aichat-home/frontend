@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap');
 :root {
     color-scheme: light dark;
+    -webkit-user-drag: none;
     --img-filter-light: invert(0%);
     --img-filter-dark: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
 }
