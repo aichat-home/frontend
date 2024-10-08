@@ -25,17 +25,17 @@ body {
 
 .page-container {
     color: light-dark(#333b3c, #fff);
-    background-color: light-dark(#efedea, #0f1015);
+    background-color: light-dark(#F8F9FC, #0f1015);
 }
 
 .daily-checkin-page {
     color: light-dark(#333b3c, #fff);
-    background-color: light-dark(#efedea, #0f1015);
+    background-color: light-dark(#F8F9FC, #0f1015);
 }
 
 .content {
     color: light-dark(#333b3c, #fff);
-    background-color: light-dark(#efedea, #0f1015);
+    background-color: light-dark(#F8F9FC, #0f1015);
 }
 
 .content::-webkit-scrollbar {
