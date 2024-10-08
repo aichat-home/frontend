@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './index.css'; 
 import { useUser } from '../../../app/providers/UserProvider';
 import { useCheckReferralMutation } from './store';
-import { SpeedIcon } from '../../../shared/assets';
+import { CehvronRight, SpeedIcon } from '../../../shared/assets';
 
 interface InviteBonusItem {
   level: string;
@@ -83,7 +83,9 @@ const InviteBonusPage: React.FC = () => {
             </div>
             <p>Current Farm Rate</p>
           </div>
-          <div className="arrow">➔</div>
+          <div className="arrow">
+            <img src={CehvronRight} alt="" />
+          </div>
           <div className="farm-rate">
             <div className='row justify-center'>
               <img src={SpeedIcon} alt="" />

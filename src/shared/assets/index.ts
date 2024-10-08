@@ -23,6 +23,7 @@ import TweeterIcon from "./x.svg";
 import YoutubeIcon from "./youtube.svg";
 import SniperIcon from "./sniper.svg";
 import InfoIcon from "./info.svg";
+import CehvronRight from "./cehvronRight.svg";
 
 export {
   OnePlaceIcon,
@@ -49,5 +50,6 @@ export {
   TweeterIcon,
   YoutubeIcon,
   SniperIcon,
-  InfoIcon
+  InfoIcon,
+  CehvronRight
 };

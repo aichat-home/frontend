@@ -8,6 +8,7 @@
 body,
 html {
     -webkit-user-drag: none;
+    color-scheme: light dark;
 }
 
 body {
@@ -169,16 +170,16 @@ body {
 
 .farm-rate {
     background-color: light-dark(#fff, #0197ec);
-    color: light-dark(#ffffff, #ffffff);
+    color: light-dark(black, #ffffff);
 }
 
 .username {
-    /* background-color: light-dark(black, #0197ec); */
     color: light-dark(black, #ffffff) !important;
 }
 
 .invite-bonus-link {
-    text-decoration: inherit;
+    text-decoration: none !important;
+    color: light-dark(black, #ffffff) !important;
 }
 
 .invite-bonus-list {

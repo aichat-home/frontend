@@ -37,10 +37,9 @@
 
 .invite-bonus-section {
     background-color: #ffffff;
-    padding: 20px 15px;
+    padding: 10px 15px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 150px;
 }
 
 .invite-bonus-list {
@@ -48,15 +47,17 @@
     flex-direction: column;
     border-radius: 10px;
     border: 1px solid transparent;
+    height: max-content;
+    padding: 10px;
 }
 
 .invite-bonus-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #f9f9f9;
     padding: 10px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); */
+    height: 50px;
 }
 
 .level-circle {
