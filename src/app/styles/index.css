@@ -13,7 +13,7 @@ html {
 
 body {
     color: light-dark(#333b3c, #f8f9fc);
-    background-color: light-dark(#efedea, #0f1015);
+    background-color: light-dark(#F8F9FC, #0f1015);
     font-weight: 400;
     font-family: 'Kanit', sans-serif;
 }
@@ -44,17 +44,17 @@ body {
 
 .invite-bonus-section {
     color: light-dark(#333b3c, #fff);
-    background-color: light-dark(#efedea, #0f1015);
+    background-color: light-dark(#F8F9FC, #0f1015);
 }
 
 .invite-friends-container {
     color: light-dark(#333b3c, #fff);
-    background-color: light-dark(#efedea, #0f1015);
+    background-color: light-dark(#F8F9FC, #0f1015);
 }
 
 .wall-of-fame {
     color: light-dark(#333b3c, #fff);
-    background-color: light-dark(#efedea, #0f1015);
+    background-color: light-dark(#F8F9FC, #0f1015);
 }
 
 .header {
