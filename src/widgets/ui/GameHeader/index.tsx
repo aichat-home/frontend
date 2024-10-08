@@ -31,20 +31,19 @@ const Header: React.FC = () => {
 
   const { open } = useTonConnectModal();
 
-  // Функция для вибрации
   const handleVibration = () => {
     if (navigator.vibrate) {
-      navigator.vibrate(100); // Вибрация на 100 миллисекунд
+      navigator.vibrate(100); 
     }
   };
 
   const handleWalletClick = () => {
-    handleVibration(); // Добавляем вибрацию при клике
+    handleVibration(); 
     setModalVisible(true);
   };
 
   const disconnectWallet = () => {
-    handleVibration(); // Добавляем вибрацию при клике
+    handleVibration(); 
     if (tonConnectUI) {
       tonConnectUI.disconnect();
     }

@@ -6,6 +6,8 @@
     align-items: center;
     padding: 16px 0 0 0;
     border-radius: 10px;
+    animation: slideInFromRight 1s ease-out;
+    position: relative;
 }
 
 .header img {
@@ -116,4 +118,15 @@
     justify-content: center;
     width: 100%;
     height: 100%;
+}
+
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
