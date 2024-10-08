@@ -84,7 +84,7 @@
 .collected-tokens-amount {
     font-size: 13px;
     color: light-dark(black, black);
-    font-weight: 400;
+    font-weight: 400 !important;
 }
 
 .header-right-icons {
