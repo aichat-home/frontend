@@ -50,6 +50,7 @@
     margin-bottom: 10px;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: slideInFromLeft 1s ease-out;
 }
 
 .settings-label {
