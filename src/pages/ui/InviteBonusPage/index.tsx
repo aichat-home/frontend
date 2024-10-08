@@ -30,12 +30,10 @@ const InviteBonusPage: React.FC = () => {
     const requiredReferrals = inviteBonuses[index].requiredReferrals;
     const currentReferrals = user?.account?.reffers?.length || 0;
     
-    // Check if the current number of referrals is sufficient
     if (currentReferrals < requiredReferrals) {
       return false;
     }
 
-    // Check if it's the first bonus or if the previous bonus was claimed
     if (index === 0) {
       return !referralRewards[index]?.claimed;
     }
@@ -89,7 +87,7 @@ const InviteBonusPage: React.FC = () => {
           <div className="farm-rate">
             <div className='row justify-center'>
               <img src={SpeedIcon} alt="" />
-              <h3>{(user?.plus_every_second ?? 0) + (user?.plus_every_second ?? 0)} BBP</h3>
+              <h3>{(user?.plus_every_second ?? 0) + (0.01)} BBP</h3>
             </div>
             <p>Next Farm Rate</p>
           </div>
