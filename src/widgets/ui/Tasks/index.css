@@ -154,3 +154,11 @@
 .task-header {
     margin-top: 15px;
 }
+
+.chevron-icon {
+    transition: transform 0.3s ease;
+}
+
+.chevron-icon.rotated {
+    transform: rotate(180deg);
+}

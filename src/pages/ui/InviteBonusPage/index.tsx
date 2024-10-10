@@ -87,7 +87,7 @@ const InviteBonusPage: React.FC = () => {
           <div className="farm-rate">
             <div className='row justify-center'>
               <img src={SpeedIcon} alt="" />
-              <h3>{(user?.plus_every_second ?? 0) + (0.01)} BBP</h3>
+              <h3>{(user?.next_day_plus_every_second ?? 0)} BBP</h3>
             </div>
             <p>Next Farm Rate</p>
           </div>

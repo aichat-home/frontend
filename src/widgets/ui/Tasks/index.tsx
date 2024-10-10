@@ -60,6 +60,8 @@ const Tasks: React.FC = () => {
     setShowAllTasks(!showAllTasks);
   };
 
+  
+
 
   const schedulerTask: Task = {
     id: 0,
@@ -115,7 +117,11 @@ const Tasks: React.FC = () => {
           >
             {showAllTasks ? t("view_less") : t("view_more")}
           </button>
-          <img src={ChevronIcon} alt="" />
+          <img
+            src={ChevronIcon}
+            alt=""
+            className={`chevron-icon ${showAllTasks ? "rotated" : ""}`}
+          />
         </div>
       </div>
 
