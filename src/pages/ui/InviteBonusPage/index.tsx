@@ -4,6 +4,34 @@ import { useUser } from '../../../app/providers/UserProvider';
 import { useCheckReferralMutation } from './store';
 import { CehvronRight, SpeedIcon } from '../../../shared/assets';
 
+import React, { useState } from 'react';
+import Modal from '../../../widgets/ui/Modal'; // Импорт компонента модального окна
+import './index.css';
+
+const InviteBonusPage: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(true);
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  return (
+    <>
+      {isModalOpen && (
+        <Modal onClose={closeModal}>
+          <div className="invite-bonus-content">
+            {/* Ваш основной контент страницы InviteBonusPage */}
+            <h1>Invite Bonus Page</h1>
+            {/* Остальной контент */}
+          </div>
+        </Modal>
+      )}
+    </>
+  );
+};
+
+export default InviteBonusPage;
+
 interface InviteBonusItem {
   level: string;
   description: string;
