@@ -1,0 +1,36 @@
+.home-content {
+    padding: 0 20px;
+}
+
+.slide-content {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 20px;
+}
+
+.news-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.more-button {
+    height: 32px;
+    width: auto;
+}
+
+.custom-swiper {
+    height: 300px;
+}
+
+.swiper-wrapper {
+    height: 100%;
+}
+
+.react-loading-skeleton {
+    background-color: light-dark(#f1f1f1, #2b2b2b) !important;
+    --highlight-color: light-dark(#dbdbdb, #2b2b2b) !important;
+    --base-color: light-dark(#d6d6d6, #3f3e3e) !important;
+}

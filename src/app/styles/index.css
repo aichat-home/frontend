@@ -74,6 +74,15 @@ body {
     color: light-dark(#0f1015, #fff);
 }
 
+.slide-content {
+    background-color: light-dark(#ffffff, #1a1d26);
+    color: light-dark(#0f1015, #fff);
+}
+
+.token-item {
+    background-color: light-dark(#ffffff, #1a1d26);
+}
+
 .modal-content {
     background-color: light-dark(#ffffff, #1a1d26);
     color: light-dark(#0f1015, #fff);

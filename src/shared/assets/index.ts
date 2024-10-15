@@ -24,6 +24,12 @@ import YoutubeIcon from "./youtube.svg";
 import SniperIcon from "./sniper.svg";
 import InfoIcon from "./info.svg";
 import CehvronRight from "./cehvronRight.svg";
+import Assetsicon from "./coin.svg";
+import Timericon from "./timer.svg";
+import Swapicon from "./swap.svg";
+import Bannericon from "./Banner.png";
+import PositiveGraphicon from "./positiveGraph.svg";
+import NegativeGraphIcon from "./negativeGraphIcon.svg";
 
 export {
   OnePlaceIcon,
@@ -51,5 +57,11 @@ export {
   YoutubeIcon,
   SniperIcon,
   InfoIcon,
-  CehvronRight
+  CehvronRight,
+  Timericon,
+  Swapicon,
+  Bannericon,
+  PositiveGraphicon,
+  NegativeGraphIcon,
+  Assetsicon
 };
