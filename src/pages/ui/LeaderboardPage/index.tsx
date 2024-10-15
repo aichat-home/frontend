@@ -12,34 +12,6 @@ import {
 import { useUser } from "../../../app/providers/UserProvider";
 import { t } from "i18next";
 
-import React, { useState } from 'react';
-import Modal from '../../../widgets/ui/Modal'; // Импорт компонента модального окна
-import './index.css';
-
-const LeaderboardPage: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(true);
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  return (
-    <>
-      {isModalOpen && (
-        <Modal onClose={closeModal}>
-          <div className="leaderboard-content">
-            {/* Ваш основной контент страницы LeaderboardPage */}
-            <h1>Leaderboard Page</h1>
-            {/* Остальной контент */}
-          </div>
-        </Modal>
-      )}
-    </>
-  );
-};
-
-export default LeaderboardPage;
-
 const WallOfFame: React.FC = () => {
   const { data: leaderboardData, isLoading } = useFetchLeaderboardQuery();
   const user = useUser();
