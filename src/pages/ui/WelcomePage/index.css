@@ -111,3 +111,14 @@
 .checkin-item.pending .day-circle {
     background-color: #111827;
 }
+
+.navigation-buttons {
+    width: 100%;
+    margin: 20px;
+}
+
+.close-welcome-modal {
+    width: 100%;
+    width: 336px;
+    height: 48px;
+}
