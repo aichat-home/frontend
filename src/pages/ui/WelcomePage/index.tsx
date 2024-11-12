@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
 import { useUser } from '../../../app/providers/UserProvider';
+import { useNavigate } from 'react-router-dom';
+import Button from '../../../widgets/ui/Button';
 
 interface CheckInItem {
   day: number;
@@ -10,10 +12,8 @@ interface CheckInItem {
 
 const DailyCheckInPage: React.FC = () => {
   const user = useUser();
-
+  const navigate = useNavigate(); // Initialize the navigate hook
   const currentDay = user?.wallet.reward.day ?? 1;
-
-  console.log('Current Day:', currentDay);
 
   const checkInItems: CheckInItem[] = [
     { day: 1, status: 'pending', farmRate: '0.01 / 1s' },
@@ -40,7 +40,7 @@ const DailyCheckInPage: React.FC = () => {
   const [time, setTime] = useState<number>(0);
 
   useEffect(() => {
-    localStorage.setItem('rewardDay', currentDay.toString())
+    localStorage.setItem('rewardDay', currentDay.toString());
     const savedStartTime = localStorage.getItem('dayStartTime');
     let startTime: number;
 
@@ -64,7 +64,7 @@ const DailyCheckInPage: React.FC = () => {
     const timer = setInterval(calculateTimeLeft, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [currentDay]);
 
   const formatTime = (seconds: number) => {
     const h = Math.floor(seconds / 3600).toString().padStart(2, '0');
@@ -96,6 +96,10 @@ const DailyCheckInPage: React.FC = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="navigation-buttons">
+        <Button className='close-welcome-modal' onClick={() => navigate('/')}>Continue</Button>
       </div>
     </div>
   );
