@@ -2,8 +2,8 @@ import React from "react";
 import "./index.css";
 import { Assetsicon, Swapicon, Timericon } from "../../../shared/assets";
 import Block from "../Block";
-import Button from "../Button";
-import CustomSwiper from "../Slider";
+// import Button from "../Button";
+// import CustomSwiper from "../Slider";
 
 const ActionCards: React.FC = () => {
   return (

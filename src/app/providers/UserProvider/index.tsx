@@ -23,6 +23,7 @@ export const useUser = () => useContext(UserContext);
 
 const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   const [userData, setUserData] = useState<GetMeDto | undefined>();
+  const [hasFetchedUserData, setHasFetchedUserData] = useState(false);
   const launchParams = useLaunchParams();
   const dispatch = useAppDispatch();
   const initDataRaw = useAppSelector(selectInitDataRaw);
@@ -30,10 +31,7 @@ const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   const [getMe] = useLazyGetMeQuery();
   const inviteInitData = useInitData();
   const referralUid = inviteInitData?.startParam || undefined;
-
-  console.log(initDataRaw);
   
-
   useEffect(() => {
     if (launchParams && launchParams.initDataRaw) {
       dispatch(setInitDataRaw(launchParams.initDataRaw));
@@ -67,23 +65,24 @@ const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
           totalFarmReward: meData.total_farm_reward || 0,
         }),
       );
-      dispatch(updateUserTokens(meData.wallet.coins))
+      dispatch(updateUserTokens(meData.wallet.coins));
       dispatch(
         setFarmingState({
           currentTotalCoinsFarmed: meData.current_farm_reward || 0,
           remainingTime: meData.total_duration - Number(meData.time_passed),
         }),
       );
+      setHasFetchedUserData(true);
     } catch (error) {
       console.error("Ошибка при получении данных пользователя:", error);
     }
   };
 
   useEffect(() => {
-    if (initDataRaw && !isLoading && !isFetching) {
+    if (initDataRaw && !isLoading && !isFetching && !hasFetchedUserData) {
       getUserData();
     }
-  }, [initDataRaw]);
+  }, [initDataRaw, isLoading, isFetching, hasFetchedUserData]);
 
   return (
     <UserContext.Provider value={userData}>{children}</UserContext.Provider>

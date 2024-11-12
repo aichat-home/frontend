@@ -8,6 +8,7 @@ import CupIcon from "./Cup.svg";
 import EmptyWalletIcon from "./empty-wallet.svg";
 import FriendsIcon from "./friends.svg";
 import GiftIcon from "./gift.svg";
+import GiftTwoIcon from "./gift2.svg";
 import HomeIcon from "./Home.svg";
 import PercentageCircleIcon from "./percentage-circle.svg";
 import RocketIcon from "./rocket.svg";
@@ -30,6 +31,12 @@ import Swapicon from "./swap.svg";
 import Bannericon from "./Banner.png";
 import PositiveGraphicon from "./positiveGraph.svg";
 import NegativeGraphIcon from "./negativeGraphIcon.svg";
+import TtrashIcon from "./trash.svg";
+import BuyIcon from "./buy.svg";
+import TaskIcon from "./tasks.svg";
+import MoneyReciveIcon from "./money-recive.svg";
+import StarValueIcon from "./star-value.svg";
+import CardSwapIcon from "./Card 2.svg";
 
 export {
   OnePlaceIcon,
@@ -42,6 +49,7 @@ export {
   EmptyWalletIcon,
   FriendsIcon,
   GiftIcon,
+  GiftTwoIcon,
   HomeIcon,
   PercentageCircleIcon,
   RocketIcon,
@@ -63,5 +71,11 @@ export {
   Bannericon,
   PositiveGraphicon,
   NegativeGraphIcon,
+  TtrashIcon,
+  BuyIcon,
+  TaskIcon,
+  MoneyReciveIcon,
+  StarValueIcon,
+  CardSwapIcon,
   Assetsicon
 };

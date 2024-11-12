@@ -16,10 +16,11 @@ import {
   CoinIcon,
   RocketIcon,
   EmptyWalletIcon,
-  CupStarIcon,
   SettingIcon,
 } from "../../../shared/assets/index";
 import { t } from "i18next";
+import WallOfFame from "../../../pages/ui/LeaderboardPage";
+import InviteBonusPage from "../../../pages/ui/InviteBonusPage";
 
 const Header: React.FC = () => {
   const user = useUser();
@@ -28,6 +29,8 @@ const Header: React.FC = () => {
   const wallet = useTonWallet();
   const [tonConnectUI] = useTonConnectUI();
   const [saveWalletAddress] = useSaveWalletAddressMutation();
+  const [toggleLeaderModalVisible, setLeaderModalVisible] = useState(false);
+  const [toggleFarmSpeedModalVisible, setFarmSpeedModalVisible] = useState(false);
 
   const { open } = useTonConnectModal();
 
@@ -60,10 +63,18 @@ const Header: React.FC = () => {
     }
   }, [wallet, userFriendlyAddress, saveWalletAddress]);
 
+  const toggleLeaderModal = () => setLeaderModalVisible(!toggleLeaderModalVisible);
+  const toggleFarmSpeedModal = () => setFarmSpeedModalVisible(!toggleFarmSpeedModalVisible);
+
+  const number = 0;
+
+  const numberScore = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD' }).format(
+    number,
+  )
   return (
     <Block className="header">
       <div className="user-info">
-        <Link className="invite-bonus-link" to='/invite-bonus-page' onClick={handleVibration}>
+        <Block className="invite-bonus-link" onClick={() => { handleVibration(); toggleFarmSpeedModal(); }}>
           <Block className="username">
             <img src={CoinIcon} alt="User Avatar" className="user-avatar" />
             <Block className="user-tokens">
@@ -80,7 +91,11 @@ const Header: React.FC = () => {
               </Block>
             </Block>
           </Block>
-        </Link>
+        <Block>
+          {numberScore}
+        </Block>
+
+        </Block>
       </div>
 
       <Block className="header-right-icons">
@@ -90,13 +105,14 @@ const Header: React.FC = () => {
           </div>
         </Block>
 
-        <Block>
-          <Link to="/leaders" onClick={handleVibration}>
+        {/* <Block>          
+          <Block onClick={() => { handleVibration(); toggleLeaderModal(); }}>
             <div>
               <img src={CupStarIcon} alt="Achievements" />
             </div>
-          </Link>
-        </Block>
+          </Block>
+        </Block> */}
+
         <Block>
           <Link to="/settings" onClick={handleVibration}>
             <div>
@@ -105,6 +121,14 @@ const Header: React.FC = () => {
           </Link>
         </Block>
       </Block>
+
+      <Modal isVisible={toggleFarmSpeedModalVisible} onClose={toggleFarmSpeedModal} className="custom-modal invite-friends-modal">
+        <InviteBonusPage />
+      </Modal>
+
+      <Modal isVisible={toggleLeaderModalVisible} onClose={toggleLeaderModal} className="custom-modal invite-friends-modal">
+        <WallOfFame />
+      </Modal>
 
       <Modal isVisible={isModalVisible} onClose={() => setModalVisible(false)}>
         <div className="modal-body">

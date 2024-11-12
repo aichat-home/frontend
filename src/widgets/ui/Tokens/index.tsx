@@ -1,8 +1,9 @@
 import React from "react";
 import { useFetchMarketDataQuery } from "../../../pages/ui/HomePage/store";
-import TokenItem from "./TokenItem";
+
 import "./index.css";
 import { NegativeGraphIcon, PositiveGraphicon } from "../../../shared/assets";
+import SwipeableTokenItem from "./TokenItem";
 
 const TokenList: React.FC = () => {
   const { data, error, isLoading } = useFetchMarketDataQuery({
@@ -10,13 +11,22 @@ const TokenList: React.FC = () => {
     sort: "desc",
   });
 
+  const handleRemove = (tokenName: string) => {
+    alert(`Токен ${tokenName} удален`);
+  };
+
+  const handleBuy = (tokenName: string) => {
+    alert(`Покупка токена ${tokenName}`);
+  };
+
   if (isLoading) return <p>Загрузка...</p>;
   if (error) return <p>Ошибка при загрузке данных</p>;
+  if (!data || data.length === 0) return <p>Нет данных для отображения</p>;
 
   return (
     <div className="token-list">
-      {data?.map((item) => (
-        <TokenItem
+      {data.map((item) => (
+        <SwipeableTokenItem
           key={item.address}
           image={item.image}
           name={item.name}
@@ -27,6 +37,8 @@ const TokenList: React.FC = () => {
           price_change_percentage_24h={item.price_change_percentage_24h}
           positiveGraph={PositiveGraphicon}
           negativeGraph={NegativeGraphIcon}
+          onRemove={() => handleRemove(item.name)} 
+          onBuy={() => handleBuy(item.name)}
         />
       ))}
     </div>

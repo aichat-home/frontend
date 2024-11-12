@@ -57,14 +57,6 @@
     margin-right: 8px;
 }
 
-.commission-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding-top: 30px;
-}
-
 .info-icon {
     margin-left: 5px;
     width: 16px;
@@ -80,7 +72,7 @@
 
 .user-stats {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
     animation: slideInFromLeft 1s ease-out;
 }
@@ -92,7 +84,7 @@
 }
 
 .user-stats-stars img {
-    width: 21px;
+    width: 20px;
 }
 
 .gray {
@@ -101,8 +93,10 @@
 }
 
 .bold {
-    color: light-dark(#111827, #fff);
-    font-weight: 500;
+    font-family: Readex Pro;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 18px;
     text-align: left;
 }
 
@@ -119,7 +113,7 @@
     flex-direction: row;
 }
 
-.user-stats-commision img {
+.flex {
     padding-left: 5px;
 }
 
@@ -132,12 +126,30 @@
     padding-left: 5px;
 }
 
+.swiper-slide {
+    min-height: 165px;
+}
+
+.card-swap-block {
+    display: flex;
+    justify-content: center;
+}
+
+.card-swap-block div img {
+    width: 100%;
+}
+
 .stat {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     text-align: center;
+    height: 37px;
+    width: 100px;
+    padding: 5px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 3px 4px 0px #0000001F;
 }
 
 .telegram-channel {
@@ -177,14 +189,6 @@
     border: none;
     border-radius: 5px;
     margin-left: 8px;
-}
-
-.tasks-section {
-    background-color: white;
-    padding: 16px;
-    border-radius: 10px 10px 0 0;
-    margin-top: 16px;
-    border-bottom: 0.5px solid #696f8c;
 }
 
 .view-more-section {
@@ -322,4 +326,21 @@
         opacity: 1;
         transform: translateX(0);
     }
+}
+
+.invite-friends-modal {
+    background-color: #F8F9FC;
+}
+
+.tasks-info {
+    font-family: Readex Pro;
+    font-size: 13px;
+    font-weight: 300;
+    color: #696F8C;
+    margin-bottom: 20px;
+}
+
+.level-badge {
+    display: flex;
+    align-items: center;
 }

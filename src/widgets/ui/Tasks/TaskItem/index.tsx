@@ -76,17 +76,25 @@ const TaskItem: React.FC<TaskItemProps> = ({
     if (iconSrc === TaskIcons.twitter || iconSrc === TaskIcons.twitterX) return TweeterIcon;
   }, [iconSrc]);
 
+  const shouldScroll = title.length > 15;
+
   return (
     <div className={`task-item ${isVisible ? "visible" : ""}`} style={{ animationDelay }}>
       <Block className="task-list">
         <img src={resolvedIconSrc} alt={title} className="task-icon" />
       </Block>
       <div className="task-info">
-        <div>{title}</div>
+        {shouldScroll ? (
+          <div id="scroll-container">
+            <div id="scroll-text">{title}</div>
+          </div>
+        ) : (
+          <div>{title}</div>
+        )}
         <span>{isCompleted ? "Completed" : description}</span>
+        <span>{reward} BBP</span>
       </div>
       <div className="task-action">
-        <span>{reward} BBP</span>
         <Button onClick={handleButtonClick} disabled={isChecking || isCompleted}>
           {buttonText}
         </Button>

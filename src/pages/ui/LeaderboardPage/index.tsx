@@ -54,7 +54,7 @@ const WallOfFame: React.FC = () => {
 
   return (
     <Block className="wall-of-fame">
-      <div className="header leaderboard-header">
+      <div className="leaderboard-header">
         <h2>{t("wall_of_fame")}</h2>
         <p>{t("ascend_to_greatness")}</p>
         <img src={CupIcon} alt={t("trophy")} />

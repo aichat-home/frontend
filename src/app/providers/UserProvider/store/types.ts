@@ -65,6 +65,7 @@ export interface GetMeDto {
   total_farm_reward: number | null;
   reffer_rewards: ReferralReward[];
   next_day_plus_every_second: number;
+  current_level: number | null;
 }
 
 export interface FarmingData {

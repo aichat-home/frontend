@@ -1,3 +1,3 @@
 git acces token - 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
 ssh root@103.106.2.225
-password - gZ3bK2rJ9xpM
+password - gZ3bK2rJ9xpM 
