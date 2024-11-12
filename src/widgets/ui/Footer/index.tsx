@@ -8,29 +8,28 @@ const Footer = () => {
   const { t } = useTranslation();
   const location = useLocation();
 
-  // Функция для вибрации
   const handleVibration = () => {
     if (navigator.vibrate) {
-      navigator.vibrate(100); // Вибрирует на 100 миллисекунд
+      navigator.vibrate(100);
     }
   };
 
   return (
     <footer className="footer">
       <Block>
-        <div
-          className={`footer-item disable ${location.pathname === "/trade" ? "active" : ""}`}
-          onClick={handleVibration} // Добавлен вызов вибрации
+        <NavLink to="/home"
+          className={`footer-item`}
+          onClick={handleVibration} 
         >
           <img src={HomeIcon} alt={t("Home")} className="footer-icon" />
           <p>{t("Home")}</p>
-        </div>
+        </NavLink>
       </Block>
 
       <Block>
         <div
           className={`footer-item disable ${location.pathname === "/trade" ? "active" : ""}`}
-          onClick={handleVibration} // Добавлен вызов вибрации
+          onClick={handleVibration}
         >
           <img src={SniperIcon} alt={t("Sniper")} className="footer-icon" />
           <p>{t("Sniper")}</p>
@@ -40,7 +39,7 @@ const Footer = () => {
       <Block>
         <div
           className={`footer-item disable ${location.pathname === "/trade" ? "active" : ""}`}
-          onClick={handleVibration} // Добавлен вызов вибрации
+          onClick={handleVibration}
         >
           <img src={TradeIcon} alt={t("Trade")} className="footer-icon" />
           <p>{t("Trade")}</p>
@@ -50,7 +49,7 @@ const Footer = () => {
       <Block>
         <div
           className={`footer-item disable ${location.pathname === "/trade" ? "active" : ""}`}
-          onClick={handleVibration} // Добавлен вызов вибрации
+          onClick={handleVibration} 
         >
           <img src={WalletIcon} alt={t("Wallet")} className="footer-icon" />
           <p>{t("Wallet")}</p>
@@ -61,7 +60,7 @@ const Footer = () => {
         <NavLink
           to="/"
           className={`footer-item active ${location.pathname === "/airdrop" ? "active" : ""}`}
-          onClick={handleVibration} // Добавлен вызов вибрации
+          onClick={handleVibration}
         >
           <img src={GiftIcon} alt={t("Airdrop")} className="footer-icon" />
           <p>{t("Airdrop")}</p>

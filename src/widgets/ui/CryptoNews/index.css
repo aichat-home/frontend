@@ -1,0 +1,28 @@
+.news-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    margin-right: 10px;
+}
+
+.user-details {
+    display: flex;
+}
+
+.news-description {
+    margin-top: 20px;
+}
+
+.news-swiper .swiper-wrapper {
+    margin-bottom: 40px;
+}
+
+.news-swiper .swiper-pagination-bullet {
+    transition: background-color 0.9s ease, padding-right 0.3s ease;
+    border-radius: 9px;
+}
+
+.news-swiper .swiper-pagination-bullet-active {
+    background-color: #111827;
+    padding-right: 50px;
+}

@@ -50,9 +50,10 @@ const Page = ({ children }: { children: React.ReactNode }) => {
   }, [totalDuration]);
 
   useEffect(() => {
-    if (user?.account.heSeeWelcomeScreen === false && !localStorage.getItem('hasSeenDailyCheck')) {
+    const rewardDay = localStorage.getItem('rewardDay');
+    
+    if (user && user?.wallet.reward.day !== Number(rewardDay)) {
       navigate('/daily-check');
-      localStorage.setItem('hasSeenDailyCheck', 'true');
     }
   }, [user, navigate]);
   

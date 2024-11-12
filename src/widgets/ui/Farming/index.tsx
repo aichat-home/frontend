@@ -16,8 +16,10 @@ import { useTranslation } from "../../../../node_modules/react-i18next";
 import { useUserContext } from "../../../app/providers/UserProvider/hooks/useUserContext";
 import { selectFarmingData } from "../../../app/providers/UserProvider/store/selectors";
 import { FarmingStatus } from "../../../pages/ui/AirdropPage/store/types";
+import { useUser } from "../../../app/providers/UserProvider";
 
 const Farming: React.FC = () => {
+  const user = useUser();
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
   const [startFarm, { isLoading: isStarting }] = useStartFarmMutation();
@@ -33,10 +35,9 @@ const Farming: React.FC = () => {
     remainingTime,
   } = useAppSelector(selectFarmingState);
 
-  // Функция для вибрации
   const handleVibration = () => {
     if (navigator.vibrate) {
-      navigator.vibrate(100); // Вибрация на 100 миллисекунд
+      navigator.vibrate(100);
     }
   };
 
@@ -52,7 +53,7 @@ const Farming: React.FC = () => {
   }, [remainingTime]);
 
   const handleStartFarming = async () => {
-    handleVibration(); // Добавляем вибрацию при старте фарминга
+    handleVibration(); 
     try {
       setShowWave(true);
       setTimeout(() => setShowWave(false), 1500);
@@ -74,7 +75,7 @@ const Farming: React.FC = () => {
   };
 
   const handleClaim = async () => {
-    handleVibration(); // Добавляем вибрацию при получении награды
+    handleVibration();
     try {
       setShowWave(true);
       setTimeout(() => setShowWave(false), 1000);
@@ -99,11 +100,6 @@ const Farming: React.FC = () => {
     }
   };
 
-  const handleBoostClick = () => {
-    handleVibration(); // Добавляем вибрацию при нажатии на кнопку Boost
-    // Добавьте здесь вашу логику для Boost
-  };
-
   return (
     <Block className="farming-container">
       <Block className={`farming-info ${showWave ? "wave-effect" : ""}`}>
@@ -126,9 +122,8 @@ const Farming: React.FC = () => {
               <Block
                 className="farming-action"
                 onClick={handleClaim}
-                style={{ cursor: "pointer", opacity: isClaiming ? 0.6 : 1 }}
-              >
-                {t("Claim")}
+                style={{ cursor: "pointer", opacity: isClaiming ? 0.6 : 1 }}              >
+                {t("Claim")} <br /> {user?.total_farm_reward}
               </Block>
             ) : (
               <Block
@@ -141,9 +136,6 @@ const Farming: React.FC = () => {
             )}
           </>
         )}
-      </Block>
-      <Block className="boost-button" onClick={handleBoostClick}>
-        {t("Boost")}
       </Block>
     </Block>
   );

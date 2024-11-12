@@ -1,0 +1,12 @@
+.custom-swiper {
+    height: 100%;
+}
+
+.custom-slide {
+    padding: 15px;
+    background-color: light-dark(#ffffff, #1a1d26);
+    height: 100%;
+    color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

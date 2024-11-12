@@ -7,6 +7,7 @@ import airDropSlice from "../../pages/ui/AirdropPage/store/slices";
 import { leaderboardApi } from "../../pages/ui/LeaderboardPage/store";
 import { referralsApi } from "../../pages/ui/ReferalsPage/store";
 import { checkRefApi } from "../../pages/ui/InviteBonusPage/store";
+import { newsApi } from "../../pages/ui/HomePage/store";
 
 export const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ export const store = configureStore({
     [leaderboardApi.reducerPath]: leaderboardApi.reducer,
     [referralsApi.reducerPath]: referralsApi.reducer,
     [checkRefApi.reducerPath]: checkRefApi.reducer,
+    [newsApi.reducerPath]: newsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
@@ -27,6 +29,7 @@ export const store = configureStore({
       leaderboardApi.middleware,
       referralsApi.middleware,
       checkRefApi.middleware,
+      newsApi.middleware
     ),
 });
 

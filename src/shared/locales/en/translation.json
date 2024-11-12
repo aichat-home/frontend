@@ -4,7 +4,7 @@
     "start_mining": "Start mining",
     "Boost": "Boost",
     "Commission": "Commission",
-    "Invites": "Invites",
+    "Invite": "Invite",
     "view_more": "View More",
     "view_less": "View Less",
     "Home": "Home",
@@ -25,7 +25,7 @@
     "follow_our_x": "Follow our X.com",
     "follow_us_message": "Drop us a follow for the latest updates",
     "join_chat_message": "Meet the community and chat with users",
-    "join_channel_message": "Catch the latest updates",
+    "join_channel_message": "Excellent joystick company! Their products are durable, responsive, and enhance gaming experience remarkably. Highly recommend!",
     "connect_wallet": "Connect Wallet",
     "disconnect_wallet": "Disconnect Wallet",
     "all_tasks_completed": "All tasks completed",
@@ -39,5 +39,10 @@
     "commissions_outline_text_2": "You can gain additional token rewards by inviting friends.",
     "commissions_outline_text_3": "When they join, you’ll go on to earn a specific percentage amount of their fees from trades made on the BeamBot platform.",
     "commissions_outline_text_4": "Trade together, win together.",
-    "commissions_outline_text_5": "Please note that funds are automatically added to your wallet, with no manual collection required."
+    "commissions_outline_text_5": "Please note that funds are automatically added to your wallet, with no manual collection required.",
+    "all_tasks": "All Tasks",
+    "partners": "Partners",
+    "daily_tasks": "Daily Tasks",
+    "Overview": "Overview",
+    "complete_tasks_to_earn": "Complete tasks to earn BBP"
 }

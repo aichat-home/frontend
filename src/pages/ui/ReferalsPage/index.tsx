@@ -3,7 +3,7 @@ import "./index.css";
 import Block from "../../../widgets/ui/Block";
 import Button from "../../../widgets/ui/Button";
 import { useFetchReferralsQuery } from "./store";
-import { RefIcon } from "../../../shared/assets";
+import { StarValueIcon } from "../../../shared/assets";
 import { useUser } from "../../../app/providers/UserProvider";
 
 const InviteFriends: React.FC = () => {
@@ -21,7 +21,7 @@ const InviteFriends: React.FC = () => {
 
   const openTelegramChat = () => {
     if (!inviteCode) return;
-    const telegramUrl = `https://t.me/share/url?url=https://t.me/BeamTapBot/Dapp?startapp=${encodeURIComponent(inviteCode)}&text=Join me in mining BeamBot and get free coins! 🔥`;
+    const telegramUrl = `https://t.me/share/url?url=https://t.me/tap_your_coin_bot/TYC?startapp=${encodeURIComponent(inviteCode)}&text=Join me in mining BeamBot and get free coins! 🔥`;
     console.log(telegramUrl);
 
     window.open(telegramUrl, "_blank");
@@ -35,21 +35,44 @@ const InviteFriends: React.FC = () => {
     return <p>Failed to load referrals.</p>;
   }
 
-  const avatarColors = ["#C3E8D2", "#F7E8D0", "#E3D1F9", "#FFDFC4", "#FFD1DC"];
+  const avatarColors = ["#111827", "#111827"];
   const getRandomColor = (index: number) =>
     avatarColors[index % avatarColors.length];
 
   return (
     <Block className="invite-friends-container">
-      <Block className="header leaderboard-header">
-        <h2>Invite Friends</h2>
-        <p>Earn more BBP as a reward!</p>
-        <img src={RefIcon} alt="Invite Icon" className="invite-icon-list" />
+      <Block className="leaderboard-header">
+        <div>Invite Friends & <br />
+        Earn Comissions</div>
+        <p>Your total earnings via commissions. 
+        Funds automatically added to your wallet.</p>
+        <Block className="stars-section">
+          <Block>
+            <div className="stars-value">
+              <div >
+                <img src={StarValueIcon} alt="" />
+              </div>
+              <div className="stars-price">
+                $ 0
+              </div>
+            </div>
+            <div>
+            <Button className="stars-claim">
+              Claim
+            </Button>
+            </div>
+          </Block>
+          <Block></Block>
+        </Block>
       </Block>
 
-      <Block className="friends-count">
-        <h3>{referrals.length} Friends</h3>
+      <Button className="invite-button" onClick={openTelegramChat}>
+        Invite friends
+      </Button>
+      <Block className="earn-ref-text">
+        Earn 10% of all your Friend’s points.
       </Block>
+
 
       <Block className="friends-list">
         {referrals.map((referral, index) => (
@@ -70,10 +93,6 @@ const InviteFriends: React.FC = () => {
           </Block>
         ))}
       </Block>
-
-      <Button className="invite-button" onClick={openTelegramChat}>
-        Invite friends
-      </Button>
     </Block>
   );
 };

@@ -16,6 +16,7 @@ import InviteFriends from "../pages/ui/ReferalsPage";
 import Page from "./ui/Page";
 import InviteBonusPage from "../pages/ui/InviteBonusPage";
 import DailyCheckInPage from "../pages/ui/WelcomePage";
+import HomePage from "../pages/ui/HomePage";
 function App() {
   const [showLoader, setShowLoader] = useState(true);
 
@@ -51,6 +52,7 @@ function App() {
                   <Routes>
                     <Route path="/" element={<Layout />}>
                       <Route index element={<Airdrop />} />
+                      <Route path="/home" element={<HomePage />} />
                       <Route path="/settings" element={<SettingsPage />} />
                       <Route path="/leaders" element={<WallOfFame />} />
                       <Route path="/ref" element={<InviteFriends />} />

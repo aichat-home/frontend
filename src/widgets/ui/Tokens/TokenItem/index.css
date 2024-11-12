@@ -1,0 +1,173 @@
+.token-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    height: 74px;
+    width: 100%;
+}
+
+.token-item:hover {
+    transform: scale(1.02);
+}
+
+.token-image {
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+}
+
+.token-name {
+    display: flex;
+    align-items: center;
+}
+
+.token-image img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.token-details {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.token-details h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.token-details p {
+    margin: 2px 0;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.token-price {
+    display: flex;
+    align-self: center;
+    margin-left: 5px;
+}
+
+.token-price-change {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+
+.token-price-change span {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.price-change {
+    width: max-content;
+    height: 15px;
+    /* margin-top: 4px; */
+    font-weight: bold;
+    font-size: 14px !important;
+    border-radius: 20px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.price-change.positive {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.price-change.negative {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.mcap-graph {
+    display: flex;
+    flex-direction: column;
+}
+
+.swipeable-token-item {
+    position: relative;
+    background-color: light-dark(#ffffff, #1a1d26);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    transition: transform 0.1s ease;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.token-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.swipe-actions {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.swipe-actions button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 70px;
+}
+
+.swipe-actions .buy-btn {
+    background-color: light-dark(#111827, #5cb85c);
+    color: white;
+    height: 100%;
+    margin: 0;
+}
+
+.price-change.positive {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.price-change.negative {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.graph-image {
+    width: 60px;
+    height: 20px;
+}
+
+.remove-btn {
+    height: 100%;
+    background-color: light-dark(#1a1d26, #d9534f);
+}

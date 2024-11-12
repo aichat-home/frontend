@@ -40,6 +40,7 @@ const DailyCheckInPage: React.FC = () => {
   const [time, setTime] = useState<number>(0);
 
   useEffect(() => {
+    localStorage.setItem('rewardDay', currentDay.toString())
     const savedStartTime = localStorage.getItem('dayStartTime');
     let startTime: number;
 

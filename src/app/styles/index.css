@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap');
 :root {
-    color-scheme: light dark;
+    color-scheme: light !important;
     -webkit-user-drag: none;
     --img-filter-light: invert(0%);
     --img-filter-dark: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
@@ -9,7 +9,7 @@
 body,
 html {
     -webkit-user-drag: none;
-    color-scheme: light dark;
+    color-scheme: light;
 }
 
 body {
@@ -50,12 +50,17 @@ body {
 
 .invite-friends-container {
     color: light-dark(#333b3c, #fff);
-    background-color: light-dark(#F8F9FC, #0f1015);
+    background-color: light-dark(#F8F9FC, transparent) !important;
+}
+
+.leaderboard-header {
+    color: light-dark(#333b3c, #fff);
+    background-color: light-dark(#F8F9FC, transparent);
 }
 
 .wall-of-fame {
     color: light-dark(#333b3c, #fff);
-    background-color: light-dark(#F8F9FC, #0f1015);
+    background-color: light-dark(#F8F9FC, transparent);
 }
 
 .header {
@@ -63,19 +68,22 @@ body {
     color: light-dark(#0f1015, #fff);
 }
 
-
-/* .token-info {
-    background-color: light-dark(#ffffff, #1a1d26);
-    color: light-dark(#0f1015, #fff);
-} */
-
 .mission-slide {
     background-color: light-dark(#ffffff, #1a1d26);
     color: light-dark(#0f1015, #fff);
 }
 
-.modal-content {
+.slide-content {
     background-color: light-dark(#ffffff, #1a1d26);
+    color: light-dark(#0f1015, #fff);
+}
+
+.token-item {
+    background-color: light-dark(#ffffff, #1a1d26);
+}
+
+.modal-content {
+    background-color: light-dark(#F8F9FC, #1a1d26);
     color: light-dark(#0f1015, #fff);
     min-height: 200px;
 }
@@ -101,17 +109,12 @@ body {
 }
 
 .farming-info {
-    background-color: light-dark(#fff, #1a1d26);
-    color: light-dark(#0f1015, #fff);
+    background-color: #1a1d26;
+    color: #fff;
 }
 
 .boost-button {
     background-color: light-dark(#fff, #0197ec);
-    color: light-dark(#0f1015, #fff);
-}
-
-.tasks-section {
-    background-color: light-dark(#fff, #1a1d26);
     color: light-dark(#0f1015, #fff);
 }
 
@@ -121,7 +124,7 @@ body {
 }
 
 .highlighted-rank {
-    background-color: light-dark(#fff, #1a1d26);
+    background-color: light-dark(#fff, #0f1015);
     color: light-dark(#0f1015, #fff);
 }
 
@@ -219,9 +222,6 @@ img {
 }
 
 @media (prefers-color-scheme: dark) {
-    img {
-        filter: invert(100%);
-    }
     .token-per-seconds img {
         filter: none !important;
     }
@@ -231,26 +231,24 @@ img {
     .task-list img {
         filter: none !important;
     }
-    .header-right-icons .block div {
-        background-color: #1a1d26;
-    }
     .farming-progress {
         background: #32363c;
     }
-    .task-list {
+    /* .task-list {
         background: #32363c;
-    }
+    } */
     .footer {
         border-top: 1px solid #32363c;
     }
-    .tasks-section {
-        border-bottom: 1px solid #32363c;
-    }
     .settings-item {
-        background: #32363c;
-        color: #fff;
+        background: #FFF;
+        color: #111827;
     }
     .settings-item span {
-        color: #fff;
+        color: #111827;
     }
+}
+
+.settings-value {
+    color: #696F8C;
 }

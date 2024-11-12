@@ -1,0 +1,22 @@
+.action-card {
+    display: flex;
+}
+
+.action-section {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.action-section .block {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: light-dark(#fff, #1a1d26);
+    flex-direction: column-reverse;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}

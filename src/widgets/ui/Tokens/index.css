@@ -1,0 +1,38 @@
+.token-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0 100px 0;
+}
+
+.mcap-graph {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.graph-image {
+    width: 60px;
+    height: 20px;
+}
+
+.token-price-change {
+    display: flex;
+    align-items: center;
+}
+
+.price-change {
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.price-change.positive {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.price-change.negative {
+    background-color: #f8d7da;
+    color: #721c24;
+}
